@@ -4,44 +4,39 @@ Chứa tất cả các hằng số, thông tin các bên, và dữ liệu bảng
 """
 
 from datetime import datetime
+from typing import Any
 
 # =============================================================================
 # FONT & STYLE CONFIGURATION
 # =============================================================================
 
-# Font chính sử dụng trong document
-FONT_PRIMARY = "Times New Roman"
-
-# Font dự phòng nếu Times New Roman không khả dụng
-FONT_FALLBACK = "Arial"  # hoặc "Calibri"
-
-# Kích thước chữ
-FONT_SIZE_BODY = 13        # Cỡ chữ nội dung
-FONT_SIZE_TITLE = 16       # Cỡ chữ tiêu đề chính (in đậm)
-FONT_SIZE_HEADER = 12      # Cỡ chữ dòng quốc hiệu
+FONT_PRIMARY: str = "Times New Roman"
+FONT_FALLBACK: str = "Arial"
+FONT_SIZE_BODY: int = 13
+FONT_SIZE_TITLE: int = 16
+FONT_SIZE_HEADER: int = 12
 
 # =============================================================================
 # PAGE LAYOUT
 # =============================================================================
 
-# Margins (đơn vị: cm)
-MARGIN_TOP = 2.5
-MARGIN_BOTTOM = 2.5
-MARGIN_LEFT = 2.5
-MARGIN_RIGHT = 2.5
+MARGIN_TOP: float = 2.5
+MARGIN_BOTTOM: float = 2.5
+MARGIN_LEFT: float = 2.5
+MARGIN_RIGHT: float = 2.5
 
 # =============================================================================
-# PARTY INFORMATION - THÔNG TIN CÁC BÊN
+# PARTY INFORMATION
 # =============================================================================
 
-PARTY_A = {
+PARTY_A: dict[str, str] = {
     "name": "Trường Đại học Tây Nguyên",
     "address": "Số 567, Lê Duẩn, P. Ea Kao, TP. Buôn Ma Thuột, Đắk Lắk",
     "representative": "Hiệu trưởng hoặc Phó Hiệu trưởng được ủy quyền",
     "sign_label": "ĐẠI DIỆN BÊN A"
 }
 
-PARTY_B = {
+PARTY_B: dict[str, str] = {
     "name": "Công ty TNHH MTV Xuất nhập khẩu 2-9 Đắk Lắk",
     "short_name": "Simexco Daklak",
     "address": "23 Ngô Quyền, P. Thắng Lợi, TP. Buôn Ma Thuột, Đắk Lắk",
@@ -50,22 +45,24 @@ PARTY_B = {
 }
 
 # =============================================================================
-# LEGAL BASIS - CĂN CỨ PHÁP LÝ
+# LEGAL BASIS
 # =============================================================================
 
-LEGAL_BASIS = [
+LEGAL_BASIS: list[str] = [
     "Căn cứ Bộ Luật Dân sự số 91/2015/QH13 ngày 24/11/2015;",
     "Căn cứ Luật Giáo dục đại học số 125/2025/QH15 được Quốc hội thông qua ngày 10/12/2025, có hiệu lực từ ngày 01/01/2026;",
     "Căn cứ nhu cầu và năng lực hợp tác giữa hai bên trong việc thúc đẩy hệ sinh thái khởi nghiệp, đổi mới sáng tạo và phát triển nguồn nhân lực chất lượng cao."
 ]
 
 # =============================================================================
-# COOPERATION TABLE DATA - DỮ LIỆU BẢNG ĐIỀU 2
+# COOPERATION TABLE DATA
 # =============================================================================
 
-COOPERATION_TABLE_HEADERS = ["STT", "Lĩnh vực", "Cam kết của Bên A\n(Đại học Tây Nguyên)", "Cam kết của Bên B\n(Simexco)"]
+COOPERATION_TABLE_HEADERS: list[str] = [
+    "STT", "Lĩnh vực", "Cam kết của Bên A\n(Đại học Tây Nguyên)", "Cam kết của Bên B\n(Simexco)"
+]
 
-COOPERATION_TABLE_DATA = [
+COOPERATION_TABLE_DATA: list[dict[str, str]] = [
     {
         "stt": "1",
         "field": "Đào tạo & Chia sẻ chuyên môn",
@@ -99,10 +96,10 @@ COOPERATION_TABLE_DATA = [
 ]
 
 # =============================================================================
-# ARTICLE CONTENT - NỘI DUNG CÁC ĐIỀU KHOẢN
+# ARTICLE CONTENT
 # =============================================================================
 
-ARTICLE_1 = {
+ARTICLE_1: dict[str, Any] = {
     "title": "Điều 1: ĐỐI TƯỢNG, MỤC TIÊU VÀ PHẠM VI HỢP TÁC",
     "items": [
         "1.1. Đối tượng: Hợp tác trong lĩnh vực giáo dục, đào tạo, nghiên cứu khoa học và chuyển giao công nghệ.",
@@ -111,7 +108,7 @@ ARTICLE_1 = {
     ]
 }
 
-ARTICLE_3 = {
+ARTICLE_3: dict[str, Any] = {
     "title": "Điều 3: THỜI HẠN, HIỆU LỰC VÀ CHẤM DỨT",
     "items": [
         "Thời hạn: 02 (hai) năm, kể từ ngày ký. Tự động gia hạn từng năm nếu không có thông báo chấm dứt.",
@@ -120,7 +117,7 @@ ARTICLE_3 = {
     ]
 }
 
-ARTICLE_4 = {
+ARTICLE_4: dict[str, Any] = {
     "title": "Điều 4: ĐIỀU KHOẢN CHUNG",
     "content": [
         "Bản ghi nhớ này không phải là hợp đồng ràng buộc pháp lý về mặt thương mại hoặc tài chính.",
@@ -128,7 +125,7 @@ ARTICLE_4 = {
     ]
 }
 
-ARTICLE_5 = {
+ARTICLE_5: dict[str, Any] = {
     "title": "Điều 5: CAM KẾT CỦA CÁC BÊN",
     "content": "Hai bên cam kết thực hiện đúng các nội dung đã thỏa thuận trong Bản ghi nhớ hợp tác này, luôn làm việc trên tinh thần thiện chí, tôn trọng, bình đẳng và cùng có lợi."
 }
@@ -137,12 +134,12 @@ ARTICLE_5 = {
 # OUTPUT CONFIGURATION
 # =============================================================================
 
-def get_output_filename():
+def get_output_filename() -> str:
     """Tạo tên file output với ngày tháng hiện tại"""
     now = datetime.now()
     return f"MOU_DHTN_Simexco_{now.day:02d}_{now.month:02d}_{now.year}.docx"
 
-def get_current_date_string():
+def get_current_date_string() -> str:
     """Lấy ngày tháng hiện tại định dạng DD/MM/YYYY"""
     now = datetime.now()
     return f"{now.day:02d}/{now.month:02d}/{now.year}"
