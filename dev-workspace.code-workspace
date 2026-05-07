@@ -1,0 +1,48 @@
+{
+  "folders": [
+    {
+      "name": "📦 taskflow-clone",
+      "path": "./taskflow-clone"
+    },
+    {
+      "name": "📄 mou-generator",
+      "path": "./mou_generator"
+    },
+    {
+      "name": "🤖 orion-skynet",
+      "path": "./orion-skynet"
+    },
+    {
+      "name": "🐍 snake-game",
+      "path": "./snake-game"
+    }
+  ],
+  "settings": {
+    "files.exclude": {
+      "**/.git": true,
+      "**/node_modules": true,
+      "**/__pycache__": true,
+      "**/.venv": true,
+      "**/dist": true,
+      "**/$null": true
+    },
+    "search.exclude": {
+      "**/node_modules": true,
+      "**/dist": true,
+      "**/package-lock.json": true,
+      "**/__pycache__": true
+    }
+  },
+  "extensions": {
+    "recommendations": [
+      "dbaeumer.vscode-eslint",
+      "esbenp.prettier-vscode",
+      "ms-python.python",
+      "charliermarsh.ruff",
+      "bradlc.vscode-tailwindcss",
+      "eamodio.gitlens",
+      "usernamehw.errorlens",
+      "pkief.material-icon-theme"
+    ]
+  }
+}
