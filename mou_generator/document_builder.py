@@ -25,7 +25,7 @@ from table_generator import create_cooperation_table
 from signature_section import add_signature_section
 
 
-def setup_page_layout(doc):
+def setup_page_layout(doc: Document) -> None:
     """
     Thiết lập layout trang: margins 2.5cm cho tất cả các cạnh.
     
@@ -39,7 +39,7 @@ def setup_page_layout(doc):
         section.right_margin = Cm(MARGIN_RIGHT)
 
 
-def build_mou_document():
+def build_mou_document() -> Document:
     """
     Xây dựng toàn bộ document MOU.
     

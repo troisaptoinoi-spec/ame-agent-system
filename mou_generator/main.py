@@ -25,7 +25,7 @@ from document_builder import build_mou_document
 from config import get_output_filename
 
 
-def main():
+def main() -> None:
     """
     Hàm chính: Tạo file MOU và lưu vào thư mục hiện tại.
     
