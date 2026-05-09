@@ -1,0 +1,203 @@
+{
+  "Print for Debug": {
+    "prefix": "pd",
+    "body": ["print(f\"DEBUG: {$1}\")"],
+    "description": "Debug print statement"
+  },
+  "Python Script Header": {
+    "prefix": "header",
+    "body": [
+      "#!/usr/bin/env python3",
+      "\"\"\"",
+      "${1:Script description}",
+      "\"\"\"",
+      "",
+      "import os",
+      "import sys",
+      "",
+      "# Fix encoding cho Windows",
+      "if sys.platform == \"win32\":",
+      "    sys.stdout.reconfigure(encoding='utf-8')",
+      "    sys.stderr.reconfigure(encoding='utf-8')"
+    ],
+    "description": "Python script header with encoding fix"
+  },
+  "Python CLI Argparse": {
+    "prefix": "cli",
+    "body": [
+      "import argparse",
+      "",
+      "",
+      "def parse_args():",
+      "    parser = argparse.ArgumentParser(",
+      "        description=\"${1:Description}\"",
+      "    )",
+      "    parser.add_argument(",
+      "        \"--${2:arg}\",",
+      "        type=${3:str},",
+      "        default=${4:None},",
+      "        help=\"${5:Help text}\"",
+      "    )",
+      "    return parser.parse_args()",
+      "",
+      "",
+      "def main():",
+      "    args = parse_args()",
+      "    $0",
+      "",
+      "",
+      "if __name__ == \"__main__\":",
+      "    main()"
+    ],
+    "description": "Python CLI with argparse"
+  },
+  "Python File Read": {
+    "prefix": "fread",
+    "body": [
+      "with open(${1:filename}, 'r', encoding='utf-8') as f:",
+      "    ${2:content} = f.read()"
+    ],
+    "description": "Python file read"
+  },
+  "Python File Write": {
+    "prefix": "fwrite",
+    "body": [
+      "with open(${1:filename}, 'w', encoding='utf-8') as f:",
+      "    f.write(${2:content})"
+    ],
+    "description": "Python file write"
+  },
+  "Python JSON Load": {
+    "prefix": "jsonload",
+    "body": [
+      "import json",
+      "",
+      "with open(${1:filename}, 'r', encoding='utf-8') as f:",
+      "    ${2:data} = json.load(f)"
+    ],
+    "description": "Python JSON load"
+  },
+  "Python JSON Dump": {
+    "prefix": "jsondump",
+    "body": [
+      "import json",
+      "",
+      "with open(${1:filename}, 'w', encoding='utf-8') as f:",
+      "    json.dump(${2:data}, f, ensure_ascii=False, indent=2)"
+    ],
+    "description": "Python JSON dump"
+  },
+  "Python Requests GET": {
+    "prefix": "rget",
+    "body": [
+      "import requests",
+      "",
+      "response = requests.get(${1:url}, timeout=30)",
+      "response.raise_for_status()",
+      "${2:data} = response.json()"
+    ],
+    "description": "Python requests GET"
+  },
+  "Python Decorator": {
+    "prefix": "deco",
+    "body": [
+      "def ${1:decorator}(func):",
+      "    \"\"\"${2:Decorator description}\"\"\"",
+      "    def wrapper(*args, **kwargs):",
+      "        $3",
+      "        result = func(*args, **kwargs)",
+      "        $0",
+      "        return result",
+      "    return wrapper"
+    ],
+    "description": "Python decorator"
+  },
+  "Python Timer Context": {
+    "prefix": "timer",
+    "body": [
+      "import time",
+      "from contextlib import contextmanager",
+      "",
+      "",
+      "@contextmanager",
+      "def timer(name: str = \"\"):",
+      "    \"\"\"Context manager to measure execution time\"\"\"",
+      "    start = time.perf_counter()",
+      "    yield",
+      "    elapsed = time.perf_counter() - start",
+      "    print(f\"{name} took {elapsed:.4f}s\")"
+    ],
+    "description": "Python timer context manager"
+  },
+  "Python Singleton": {
+    "prefix": "singleton",
+    "body": [
+      "class ${1:Singleton}:",
+      "    _instance = None",
+      "",
+      "    def __new__(cls, *args, **kwargs):",
+      "        if cls._instance is None:",
+      "            cls._instance = super().__new__(cls)",
+      "        return cls._instance"
+    ],
+    "description": "Python singleton pattern"
+  },
+  "Python Abstract Base Class": {
+    "prefix": "abc",
+    "body": [
+      "from abc import ABC, abstractmethod",
+      "",
+      "",
+      "class ${1:AbstractClass}(ABC):",
+      "    \"\"\"${2:Description}\"\"\"",
+      "",
+      "    @abstractmethod",
+      "    def ${3:method}(self) -> ${4:None}:",
+      "        \"\"\"${5:Method description}\"\"\"",
+      "        $0"
+    ],
+    "description": "Python abstract base class"
+  },
+  "Python Property": {
+    "prefix": "prop",
+    "body": [
+      "@property",
+      "def ${1:name}(self) -> ${2:type}:",
+      "    \"\"\"${3:Description}\"\"\"",
+      "    return self._${1:name}",
+      "",
+      "@${1:name}.setter",
+      "def ${1:name}(self, value: ${2:type}) -> None:",
+      "    self._${1:name} = value"
+    ],
+    "description": "Python property with getter and setter"
+  },
+  "Python Named Tuple": {
+    "prefix": "nt",
+    "body": [
+      "from typing import NamedTuple",
+      "",
+      "",
+      "class ${1:ClassName}(NamedTuple):",
+      "    \"\"\"${2:Description}\"\"\"",
+      "    $0"
+    ],
+    "description": "Python NamedTuple"
+  },
+  "Python Protocol": {
+    "prefix": "protocol",
+    "body": [
+      "from typing import Protocol, runtime_checkable",
+      "",
+      "",
+      "@runtime_checkable",
+      "class ${1:ProtocolName}(Protocol):",
+      "    \"\"\"${2:Description}\"\"\"",
+      "",
+      "    def ${3:method}(self) -> ${4:None}:",
+      "        ...",
+      "        $0"
+    ],
+    "description": "Python Protocol"
+  }
+}

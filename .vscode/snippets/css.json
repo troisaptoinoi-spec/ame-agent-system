@@ -1,0 +1,170 @@
+{
+  "Tailwind Flex Center": {
+    "prefix": "tw-flex-center",
+    "body": [
+      "flex items-center justify-center"
+    ],
+    "description": "Tailwind flex center"
+  },
+  "Tailwind Flex Between": {
+    "prefix": "tw-flex-between",
+    "body": [
+      "flex items-center justify-between"
+    ],
+    "description": "Tailwind flex between"
+  },
+  "Tailwind Grid 2 Col": {
+    "prefix": "tw-grid-2",
+    "body": [
+      "grid grid-cols-1 md:grid-cols-2 gap-${1:4}"
+    ],
+    "description": "Tailwind responsive 2-column grid"
+  },
+  "Tailwind Grid 3 Col": {
+    "prefix": "tw-grid-3",
+    "body": [
+      "grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-${1:4}"
+    ],
+    "description": "Tailwind responsive 3-column grid"
+  },
+  "Tailwind Container": {
+    "prefix": "tw-container",
+    "body": [
+      "mx-auto max-w-7xl px-4 sm:px-6 lg:px-8"
+    ],
+    "description": "Tailwind responsive container"
+  },
+  "Tailwind Card": {
+    "prefix": "tw-card",
+    "body": [
+      "rounded-lg border bg-card text-card-foreground shadow-sm"
+    ],
+    "description": "Tailwind shadcn/ui card"
+  },
+  "Tailwind Button Primary": {
+    "prefix": "tw-btn-primary",
+    "body": [
+      "inline-flex items-center justify-center rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground hover:bg-primary/90"
+    ],
+    "description": "Tailwind shadcn/ui primary button"
+  },
+  "Tailwind Button Secondary": {
+    "prefix": "tw-btn-secondary",
+    "body": [
+      "inline-flex items-center justify-center rounded-md bg-secondary px-4 py-2 text-sm font-medium text-secondary-foreground hover:bg-secondary/80"
+    ],
+    "description": "Tailwind shadcn/ui secondary button"
+  },
+  "Tailwind Input": {
+    "prefix": "tw-input",
+    "body": [
+      "flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
+    ],
+    "description": "Tailwind shadcn/ui input"
+  },
+  "Tailwind Badge": {
+    "prefix": "tw-badge",
+    "body": [
+      "inline-flex items-center rounded-full border px-2.5 py-0.5 text-xs font-semibold transition-colors"
+    ],
+    "description": "Tailwind shadcn/ui badge"
+  },
+  "Tailwind Responsive Text": {
+    "prefix": "tw-text-responsive",
+    "body": [
+      "text-sm md:text-base lg:text-lg"
+    ],
+    "description": "Tailwind responsive text size"
+  },
+  "Tailwind Gradient": {
+    "prefix": "tw-gradient",
+    "body": [
+      "bg-gradient-to-r from-${1:blue-500} to-${2:purple-500}"
+    ],
+    "description": "Tailwind gradient background"
+  },
+  "Tailwind Dark Mode": {
+    "prefix": "tw-dark",
+    "body": [
+      "bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100"
+    ],
+    "description": "Tailwind dark mode toggle"
+  },
+  "Tailwind Truncate": {
+    "prefix": "tw-truncate",
+    "body": [
+      "truncate max-w-${1:xs}"
+    ],
+    "description": "Tailwind text truncate"
+  },
+  "Tailwind Transition": {
+    "prefix": "tw-transition",
+    "body": [
+      "transition-all duration-${1:200} ease-in-out"
+    ],
+    "description": "Tailwind transition"
+  },
+  "CSS Custom Property": {
+    "prefix": "css-var",
+    "body": [
+      ":root {",
+      "  --${1:variable-name}: ${2:value};",
+      "}"
+    ],
+    "description": "CSS custom property declaration"
+  },
+  "CSS Reset Box": {
+    "prefix": "css-reset",
+    "body": [
+      "*, *::before, *::after {",
+      "  box-sizing: border-box;",
+      "  margin: 0;",
+      "  padding: 0;",
+      "}"
+    ],
+    "description": "CSS box model reset"
+  },
+  "CSS Scrollbar": {
+    "prefix": "css-scrollbar",
+    "body": [
+      "::-webkit-scrollbar {",
+      "  width: ${1:8}px;",
+      "}",
+      "",
+      "::-webkit-scrollbar-track {",
+      "  background: ${2:transparent};",
+      "}",
+      "",
+      "::-webkit-scrollbar-thumb {",
+      "  background: ${3:#888};",
+      "  border-radius: 4px;",
+      "}",
+      "",
+      "::-webkit-scrollbar-thumb:hover {",
+      "  background: ${4:#555};",
+      "}"
+    ],
+    "description": "Custom scrollbar styles"
+  },
+  "CSS Animation Keyframes": {
+    "prefix": "css-keyframes",
+    "body": [
+      "@keyframes ${1:animationName} {",
+      "  0% {",
+      "    $2",
+      "  }",
+      "  100% {",
+      "    $3",
+      "  }",
+      "}"
+    ],
+    "description": "CSS keyframes animation"
+  },
+  "CSS Aspect Ratio": {
+    "prefix": "css-aspect",
+    "body": [
+      "aspect-ratio: ${1:16/9};"
+    ],
+    "description": "CSS aspect ratio"
+  }
+}

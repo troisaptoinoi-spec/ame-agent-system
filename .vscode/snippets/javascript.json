@@ -1,0 +1,160 @@
+{
+  "HTML Boilerplate": {
+    "prefix": "html5",
+    "body": [
+      "<!DOCTYPE html>",
+      "<html lang=\"vi\">",
+      "<head>",
+      "    <meta charset=\"UTF-8\">",
+      "    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">",
+      "    <title>${1:Title}</title>",
+      "    <link rel=\"stylesheet\" href=\"${2:css/style.css}\">",
+      "</head>",
+      "<body>",
+      "    $0",
+      "    <script src=\"${3:js/main.js}\"></script>",
+      "</body>",
+      "</html>"
+    ],
+    "description": "HTML5 boilerplate"
+  },
+  "CSS Flexbox Center": {
+    "prefix": "flex-center",
+    "body": [
+      "display: flex;",
+      "align-items: center;",
+      "justify-content: center;"
+    ],
+    "description": "CSS flexbox center"
+  },
+  "CSS Grid": {
+    "prefix": "grid",
+    "body": [
+      "display: grid;",
+      "grid-template-columns: ${1:repeat(2, 1fr)};",
+      "gap: ${2:1rem};"
+    ],
+    "description": "CSS grid"
+  },
+  "CSS Media Query": {
+    "prefix": "mq",
+    "body": [
+      "@media (max-width: ${1:768}px) {",
+      "    $0",
+      "}"
+    ],
+    "description": "CSS media query"
+  },
+  "CSS Transition": {
+    "prefix": "transition",
+    "body": ["transition: ${1:all} ${2:0.3s} ${3:ease};"],
+    "description": "CSS transition"
+  },
+  "CSS Variable": {
+    "prefix": "var",
+    "body": ["var(--${1:name})"],
+    "description": "CSS variable"
+  },
+  "JavaScript Module Pattern": {
+    "prefix": "iife",
+    "body": [
+      "const ${1:ModuleName} = (() => {",
+      "    // Private",
+      "    $2",
+      "",
+      "    // Public API",
+      "    return {",
+      "        $0",
+      "    };",
+      "})();"
+    ],
+    "description": "JavaScript IIFE module pattern"
+  },
+  "JavaScript DOM Ready": {
+    "prefix": "domready",
+    "body": [
+      "document.addEventListener('DOMContentLoaded', () => {",
+      "    $0",
+      "});"
+    ],
+    "description": "DOM ready event"
+  },
+  "JavaScript Fetch API": {
+    "prefix": "fetch",
+    "body": [
+      "fetch('${1:url}')",
+      "    .then(response => {",
+      "        if (!response.ok) throw new Error('Network error');",
+      "        return response.json();",
+      "    })",
+      "    .then(data => {",
+      "        $2",
+      "    })",
+      "    .catch(error => {",
+      "        console.error('Error:', error);",
+      "        $0",
+      "    });"
+    ],
+    "description": "Fetch API with error handling"
+  },
+  "JavaScript Event Listener": {
+    "prefix": "el",
+    "body": [
+      "${1:element}.addEventListener('${2:event}', (${3:e}) => {",
+      "    $0",
+      "});"
+    ],
+    "description": "Event listener"
+  },
+  "JavaScript Canvas Setup": {
+    "prefix": "canvas",
+    "body": [
+      "const canvas = document.getElementById('${1:canvasId}');",
+      "const ctx = canvas.getContext('2d');",
+      "canvas.width = ${2:800};",
+      "canvas.height = ${3:600};"
+    ],
+    "description": "Canvas setup"
+  },
+  "JavaScript RequestAnimationFrame Loop": {
+    "prefix": "raf",
+    "body": [
+      "function gameLoop(currentTime) {",
+      "    requestAnimationFrame(gameLoop);",
+      "    const deltaTime = currentTime - lastTime;",
+      "    lastTime = currentTime;",
+      "    $0",
+      "}",
+      "let lastTime = performance.now();",
+      "requestAnimationFrame(gameLoop);"
+    ],
+    "description": "requestAnimationFrame game loop"
+  },
+  "SQL Create Table": {
+    "prefix": "createtable",
+    "body": [
+      "CREATE TABLE IF NOT EXISTS ${1:table_name} (",
+      "    id UUID DEFAULT uuid_generate_v4() PRIMARY KEY,",
+      "    $2",
+      "    created_at TIMESTAMPTZ DEFAULT NOW(),",
+      "    updated_at TIMESTAMPTZ DEFAULT NOW()",
+      ");"
+    ],
+    "description": "SQL CREATE TABLE with UUID"
+  },
+  "SQL RLS Policy": {
+    "prefix": "rls",
+    "body": [
+      "ALTER TABLE ${1:table_name} ENABLE ROW LEVEL SECURITY;",
+      "",
+      "CREATE POLICY \"Users can manage own ${1:table_name}\" ON ${1:table_name}",
+      "    FOR ALL USING (auth.uid() = user_id);"
+    ],
+    "description": "Supabase RLS policy"
+  },
+  "SQL Index": {
+    "prefix": "idx",
+    "body": ["CREATE INDEX IF NOT EXISTS idx_${1:table}_${2:column} ON ${1:table}(${2:column});"],
+    "description": "SQL CREATE INDEX"
+  }
+}

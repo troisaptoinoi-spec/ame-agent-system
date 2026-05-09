@@ -1,0 +1,170 @@
+{
+  "Python Function": {
+    "prefix": "def",
+    "body": [
+      "def ${1:function_name}(${2:params}) -> ${3:None}:",
+      "    \"\"\"",
+      "    $4",
+      "    \"\"\"",
+      "    $0"
+    ],
+    "description": "Python function with docstring"
+  },
+  "Python Class": {
+    "prefix": "cls",
+    "body": [
+      "class ${1:ClassName}:",
+      "    \"\"\"",
+      "    $2",
+      "    \"\"\"",
+      "",
+      "    def __init__(self${3:, params}):",
+      "        $0"
+    ],
+    "description": "Python class with docstring"
+  },
+  "Python Dataclass": {
+    "prefix": "dc",
+    "body": [
+      "from dataclasses import dataclass, field",
+      "",
+      "",
+      "@dataclass",
+      "class ${1:ClassName}:",
+      "    \"\"\"$2\"\"\"",
+      "    $0"
+    ],
+    "description": "Python dataclass"
+  },
+  "Python Try Except": {
+    "prefix": "try",
+    "body": [
+      "try:",
+      "    $1",
+      "except ${2:Exception} as e:",
+      "    print(f\"Error: {e}\")",
+      "    $0"
+    ],
+    "description": "Python try-except block"
+  },
+  "Python If Main": {
+    "prefix": "ifmain",
+    "body": [
+      "if __name__ == \"__main__\":",
+      "    $0"
+    ],
+    "description": "Python if __name__ == __main__"
+  },
+  "Python Type Hint Function": {
+    "prefix": "deft",
+    "body": [
+      "def ${1:function_name}(${2:param}: ${3:type}) -> ${4:return_type}:",
+      "    \"\"\"",
+      "    $5",
+      "    \"\"\"",
+      "    $0"
+    ],
+    "description": "Python function with type hints"
+  },
+  "Python List Comprehension": {
+    "prefix": "lc",
+    "body": ["[${1:item} for ${1:item} in ${2:iterable}${3: if condition}]"],
+    "description": "Python list comprehension"
+  },
+  "Python Dict Comprehension": {
+    "prefix": "dc2",
+    "body": ["{${1:key}: ${2:value} for ${3:item} in ${4:iterable}}"],
+    "description": "Python dict comprehension"
+  },
+  "Python Logging": {
+    "prefix": "log",
+    "body": [
+      "import logging",
+      "",
+      "logger = logging.getLogger(__name__)"
+    ],
+    "description": "Python logging setup"
+  },
+  "Python Unittest": {
+    "prefix": "ut",
+    "body": [
+      "import unittest",
+      "",
+      "",
+      "class Test${1:ClassName}(unittest.TestCase):",
+      "    \"\"\"Test suite for ${1:ClassName}\"\"\"",
+      "",
+      "    def setUp(self):",
+      "        \"\"\"Set up test fixtures\"\"\"",
+      "        $2",
+      "",
+      "    def test_${3:method_name}(self):",
+      "        \"\"\"Test ${3:method_name}\"\"\"",
+      "        $0",
+      "",
+      "",
+      "if __name__ == \"__main__\":",
+      "    unittest.main()"
+    ],
+    "description": "Python unittest class"
+  },
+  "Python Pytest Fixture": {
+    "prefix": "fixture",
+    "body": [
+      "@pytest.fixture",
+      "def ${1:fixture_name}():",
+      "    \"\"\"$2\"\"\"",
+      "    $0",
+      "    return ${3:result}"
+    ],
+    "description": "Pytest fixture"
+  },
+  "Python Pytest Test": {
+    "prefix": "ptest",
+    "body": [
+      "def test_${1:function_name}(${2:fixtures}):",
+      "    \"\"\"Test ${1:function_name}\"\"\"",
+      "    # Arrange",
+      "    $3",
+      "    # Act",
+      "    $4",
+      "    # Assert",
+      "    $0"
+    ],
+    "description": "Pytest test function"
+  },
+  "Python Context Manager": {
+    "prefix": "ctx",
+    "body": [
+      "from contextlib import contextmanager",
+      "",
+      "",
+      "@contextmanager",
+      "def ${1:context_manager}(${2:params}):",
+      "    \"\"\"$3\"\"\"",
+      "    $4",
+      "    try:",
+      "        yield ${5:result}",
+      "    finally:",
+      "        $0"
+    ],
+    "description": "Python context manager"
+  },
+  "Python Enum": {
+    "prefix": "enum",
+    "body": [
+      "from enum import Enum",
+      "",
+      "",
+      "class ${1:EnumName}(Enum):",
+      "    \"\"\"$2\"\"\"",
+      "    $0"
+    ],
+    "description": "Python Enum class"
+  },
+  "Python Pathlib": {
+    "prefix": "path",
+    "body": ["from pathlib import Path", "", "${1:file_path} = Path(${2:\".\"})"],
+    "description": "Python pathlib import"
+  }
+}

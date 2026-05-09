@@ -1,0 +1,174 @@
+{
+  "React Functional Component": {
+    "prefix": "rfc",
+    "body": [
+      "import { useState } from 'react'",
+      "",
+      "interface ${1:ComponentName}Props {",
+      "  $2",
+      "}",
+      "",
+      "export function ${1:ComponentName}({ $3 }: ${1:ComponentName}Props) {",
+      "  return (",
+      "    <div>",
+      "      $0",
+      "    </div>",
+      "  )",
+      "}"
+    ],
+    "description": "React functional component with TypeScript props"
+  },
+  "React useState Hook": {
+    "prefix": "us",
+    "body": [
+      "const [${1:state}, set${1/(.*)/${1:/capitalize}/}] = useState<${2:type}>(${3:initialValue})"
+    ],
+    "description": "useState hook with type"
+  },
+  "React useEffect Hook": {
+    "prefix": "ue",
+    "body": [
+      "useEffect(() => {",
+      "  $1",
+      "  return () => {",
+      "    $2",
+      "  }",
+      "}, [$3])"
+    ],
+    "description": "useEffect hook with cleanup"
+  },
+  "Zustand Store": {
+    "prefix": "zustore",
+    "body": [
+      "import { create } from 'zustand'",
+      "import { persist } from 'zustand/middleware'",
+      "",
+      "interface ${1:StoreName}State {",
+      "  $2",
+      "  // Actions",
+      "  $3",
+      "}",
+      "",
+      "export const use${1:StoreName} = create<${1:StoreName}State>()(",
+      "  persist(",
+      "    (set, get) => ({",
+      "      $0",
+      "    }),",
+      "    { name: '${1/(.*)/${1:/camelCase}/}-store' }",
+      "  )",
+      ")"
+    ],
+    "description": "Zustand store with persist middleware"
+  },
+  "Zustand Action": {
+    "prefix": "zaction",
+    "body": [
+      "${1:actionName}: (${2:params}) => {",
+      "  set((state) => ({",
+      "    $0",
+      "  }))",
+      "},"
+    ],
+    "description": "Zustand store action"
+  },
+  "TypeScript Interface": {
+    "prefix": "ti",
+    "body": [
+      "export interface ${1:InterfaceName} {",
+      "  $0",
+      "}"
+    ],
+    "description": "TypeScript interface"
+  },
+  "TypeScript Type": {
+    "prefix": "tt",
+    "body": [
+      "export type ${1:TypeName} = $0"
+    ],
+    "description": "TypeScript type alias"
+  },
+  "Console Log": {
+    "prefix": "cl",
+    "body": ["console.log($0)"],
+    "description": "console.log"
+  },
+  "Console Error": {
+    "prefix": "ce",
+    "body": ["console.error($0)"],
+    "description": "console.error"
+  },
+  "Try Catch": {
+    "prefix": "tc",
+    "body": [
+      "try {",
+      "  $1",
+      "} catch (error) {",
+      "  console.error(error)",
+      "  $0",
+      "}"
+    ],
+    "description": "Try-catch block"
+  },
+  "Arrow Function": {
+    "prefix": "af",
+    "body": [
+      "const ${1:name} = (${2:params}) => {",
+      "  $0",
+      "}"
+    ],
+    "description": "Arrow function"
+  },
+  "Async Arrow Function": {
+    "prefix": "aaf",
+    "body": [
+      "const ${1:name} = async (${2:params}) => {",
+      "  $0",
+      "}"
+    ],
+    "description": "Async arrow function"
+  },
+  "Tailwind Flex Center": {
+    "prefix": "tw-flex",
+    "body": ["className=\"flex items-center justify-center\""],
+    "description": "Tailwind flex center"
+  },
+  "Tailwind Flex Between": {
+    "prefix": "tw-between",
+    "body": ["className=\"flex items-center justify-between\""],
+    "description": "Tailwind flex between"
+  },
+  "Tailwind Card": {
+    "prefix": "tw-card",
+    "body": ["className=\"rounded-lg border bg-card p-4 shadow-sm\""],
+    "description": "Tailwind card component"
+  },
+  "Tailwind Button Primary": {
+    "prefix": "tw-btn",
+    "body": ["className=\"inline-flex items-center justify-center rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground hover:bg-primary/90\""],
+    "description": "Tailwind primary button"
+  },
+  "Tailwind Grid": {
+    "prefix": "tw-grid",
+    "body": ["className=\"grid grid-cols-${1:2} gap-${2:4}\""],
+    "description": "Tailwind grid"
+  },
+  "React Router Route": {
+    "prefix": "rroute",
+    "body": ["<Route path=\"${1:/path}\" element={<${2:Component} />} />"],
+    "description": "React Router route"
+  },
+  "React Event Handler": {
+    "prefix": "reh",
+    "body": [
+      "const handle${1:Event} = (${2:e}: React.${3:MouseEvent<HTMLButtonElement>}) => {",
+      "  $0",
+      "}"
+    ],
+    "description": "React event handler"
+  },
+  "Lucide Icon Import": {
+    "prefix": "licon",
+    "body": ["import { ${1:IconName} } from 'lucide-react'"],
+    "description": "Lucide React icon import"
+  }
+}

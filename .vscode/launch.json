@@ -1,0 +1,89 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "🌐 TaskFlow: Chrome Debug",
+      "type": "chrome",
+      "request": "launch",
+      "url": "http://localhost:5173",
+      "webRoot": "${workspaceFolder}/taskflow-clone/src",
+      "preLaunchTask": "🚀 TaskFlow: Dev Server",
+      "presentation": {
+        "hidden": false,
+        "group": "TaskFlow",
+        "order": 1
+      }
+    },
+    {
+      "name": "🌐 TaskFlow: Edge Debug",
+      "type": "msedge",
+      "request": "launch",
+      "url": "http://localhost:5173",
+      "webRoot": "${workspaceFolder}/taskflow-clone/src",
+      "preLaunchTask": "🚀 TaskFlow: Dev Server",
+      "presentation": {
+        "hidden": false,
+        "group": "TaskFlow",
+        "order": 2
+      }
+    },
+    {
+      "name": "📄 MOU: Generate Document",
+      "type": "debugpy",
+      "request": "launch",
+      "program": "${workspaceFolder}/mou_generator/main.py",
+      "console": "integratedTerminal",
+      "cwd": "${workspaceFolder}/mou_generator",
+      "python": "${command:python.interpreterPath}",
+      "justMyCode": true,
+      "presentation": {
+        "hidden": false,
+        "group": "MOU",
+        "order": 1
+      }
+    },
+    {
+      "name": "🧪 MOU: Run Tests",
+      "type": "debugpy",
+      "request": "launch",
+      "module": "pytest",
+      "args": ["tests/", "-v", "--tb=short"],
+      "console": "integratedTerminal",
+      "cwd": "${workspaceFolder}/mou_generator",
+      "justMyCode": true,
+      "presentation": {
+        "hidden": false,
+        "group": "MOU",
+        "order": 2
+      }
+    },
+    {
+      "name": "🚀 Launch All (Dev Mode)",
+      "configurations": [
+        "🌐 TaskFlow: Chrome Debug",
+        "📄 MOU: Generate Document"
+      ],
+      "presentation": {
+        "hidden": false,
+        "group": "Compound",
+        "order": 1
+      },
+      "stopAll": true
+    },
+    {
+      "name": "🔥 Firebase: Emulator Debug",
+      "type": "node",
+      "request": "launch",
+      "runtimeExecutable": "firebase",
+      "args": ["emulators:start"],
+      "cwd": "${workspaceFolder}/club-manager - Copy",
+      "console": "integratedTerminal",
+      "presentation": {
+        "hidden": false,
+        "group": "Firebase",
+        "order": 1
+      }
+    }
+  ],
+  "compounds": []
+}

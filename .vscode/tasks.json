@@ -1,0 +1,123 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "🚀 TaskFlow: Dev Server",
+      "type": "shell",
+      "command": "npm run dev",
+      "options": { "cwd": "${workspaceFolder}/taskflow-clone" },
+      "group": "build",
+      "presentation": {
+        "reveal": "always",
+        "panel": "new",
+        "group": "taskflow"
+      },
+      "problemMatcher": [],
+      "isBackground": true
+    },
+    {
+      "label": "🔨 TaskFlow: Build",
+      "type": "shell",
+      "command": "npm run build",
+      "options": { "cwd": "${workspaceFolder}/taskflow-clone" },
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      },
+      "presentation": {
+        "reveal": "always",
+        "panel": "shared"
+      },
+      "problemMatcher": ["$tsc"]
+    },
+    {
+      "label": "🔍 TaskFlow: Lint",
+      "type": "shell",
+      "command": "npm run lint",
+      "options": { "cwd": "${workspaceFolder}/taskflow-clone" },
+      "group": "test",
+      "presentation": {
+        "reveal": "always",
+        "panel": "shared"
+      },
+      "problemMatcher": ["$eslint-stylish"]
+    },
+    {
+      "label": "📦 TaskFlow: Install Dependencies",
+      "type": "shell",
+      "command": "npm install",
+      "options": { "cwd": "${workspaceFolder}/taskflow-clone" },
+      "group": "build",
+      "presentation": { "reveal": "always" }
+    },
+    {
+      "label": "📄 MOU: Generate Document",
+      "type": "shell",
+      "command": "python main.py",
+      "options": { "cwd": "${workspaceFolder}/mou_generator" },
+      "group": "build",
+      "presentation": {
+        "reveal": "always",
+        "panel": "new",
+        "group": "mou"
+      },
+      "problemMatcher": []
+    },
+    {
+      "label": "🧪 MOU: Run Tests",
+      "type": "shell",
+      "command": "python -m pytest tests/ -v",
+      "options": { "cwd": "${workspaceFolder}/mou_generator" },
+      "group": {
+        "kind": "test",
+        "isDefault": true
+      },
+      "presentation": {
+        "reveal": "always",
+        "panel": "shared"
+      },
+      "problemMatcher": []
+    },
+    {
+      "label": "🔍 MOU: Lint (Ruff)",
+      "type": "shell",
+      "command": "ruff check . --fix",
+      "options": { "cwd": "${workspaceFolder}/mou_generator" },
+      "group": "test",
+      "presentation": { "reveal": "always" },
+      "problemMatcher": []
+    },
+    {
+      "label": "📋 Git: Status All Projects",
+      "type": "shell",
+      "command": "git status",
+      "options": { "cwd": "${workspaceFolder}" },
+      "group": "none",
+      "presentation": { "reveal": "always" },
+      "problemMatcher": []
+    },
+    {
+      "label": "🔥 Firebase: Emulators",
+      "type": "shell",
+      "command": "firebase emulators:start",
+      "options": { "cwd": "${workspaceFolder}/club-manager - Copy" },
+      "group": "none",
+      "presentation": {
+        "reveal": "always",
+        "panel": "new",
+        "group": "firebase"
+      },
+      "problemMatcher": [],
+      "isBackground": true
+    },
+    {
+      "label": "🐳 Docker: Compose Up",
+      "type": "shell",
+      "command": "docker-compose up -d",
+      "options": { "cwd": "${workspaceFolder}" },
+      "group": "build",
+      "presentation": { "reveal": "always" },
+      "problemMatcher": []
+    }
+  ]
+}

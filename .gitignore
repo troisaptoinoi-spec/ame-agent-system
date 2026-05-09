@@ -27,7 +27,8 @@ ENV/
 env/
 
 # IDE
-.vscode/
+# .vscode/  # Track shared VS Code configs (extensions, launch, tasks, snippets)
+.vscode/settings.json  # Personal settings — uncomment to track
 .idea/
 *.swp
 *.swo

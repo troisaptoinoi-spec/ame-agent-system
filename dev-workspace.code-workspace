@@ -1,20 +1,16 @@
 {
   "folders": [
     {
-      "name": "📦 taskflow-clone",
-      "path": "./taskflow-clone"
+      "name": "🏟️ club_project",
+      "path": "./club_project"
     },
     {
-      "name": "📄 mou-generator",
-      "path": "./mou_generator"
+      "name": "📋 club-manager",
+      "path": "./club-manager - Copy"
     },
     {
-      "name": "🤖 orion-skynet",
-      "path": "./orion-skynet"
-    },
-    {
-      "name": "🐍 snake-game",
-      "path": "./snake-game"
+      "name": "📄 plans",
+      "path": "./plans"
     }
   ],
   "settings": {
@@ -24,13 +20,14 @@
       "**/__pycache__": true,
       "**/.venv": true,
       "**/dist": true,
-      "**/$null": true
+      "**/.next": true
     },
     "search.exclude": {
       "**/node_modules": true,
       "**/dist": true,
       "**/package-lock.json": true,
-      "**/__pycache__": true
+      "**/__pycache__": true,
+      "**/.next": true
     }
   },
   "extensions": {

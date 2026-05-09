@@ -1,0 +1,59 @@
+{
+  "recommendations": [
+    // --- Core Language Support ---
+    "dbaeumer.vscode-eslint",
+    "esbenp.prettier-vscode",
+    "ms-vscode.vscode-typescript-next",
+
+    // --- Python ---
+    "ms-python.python",
+    "ms-python.debugpy",
+    "charliermarsh.ruff",
+
+    // --- React / Frontend ---
+    "bradlc.vscode-tailwindcss",
+    "csstools.postcss",
+    "styled-components.vscode-styled-components",
+
+    // --- Git ---
+    "eamodio.gitlens",
+    "mhutchie.git-graph",
+
+    // --- Code Quality ---
+    "usernamehw.errorlens",
+    "christian-kohler.path-intellisense",
+    "streetsidesoftware.code-spell-checker",
+
+    // --- Productivity ---
+    "formulahendry.auto-rename-tag",
+    "vincaslt.highlight-matching-tag",
+    "obliviousharmony.support-local-storage",
+    "yoavbls.pretty-ts-errors",
+
+    // --- Icons & Theme ---
+    "pkief.material-icon-theme",
+    "zhuangtongfa.material-theme",
+
+    // --- Database ---
+    "mtxr.sqltools",
+    "mtxr.sqltools-driver-pg",
+
+    // --- API Testing ---
+    "humao.rest-client",
+
+    // --- Docker ---
+    "ms-azuretools.vscode-docker",
+
+    // --- Firebase ---
+    "firebase.firebase-vscode",
+
+    // --- AI ---
+    "github.copilot",
+    "github.copilot-chat"
+  ],
+  "unwantedRecommendations": [
+    "hookyqr.beautify",
+    "michelemelluso.code-beautifier",
+    "vscode-icons-team.vscode-icons"
+  ]
+}
