@@ -5,6 +5,7 @@ export function useCountUp(endValue, duration = 1500) {
 
   useEffect(() => {
     let startTime = null;
+    let animationId = null;
     let isString = typeof endValue === 'string';
     let target = isString ? parseInt(endValue.replace(/\D/g, '')) || 0 : endValue;
     if (target === 0) {
@@ -28,11 +29,15 @@ export function useCountUp(endValue, duration = 1500) {
       }
 
       if (percentage < 1) {
-        requestAnimationFrame(animate);
+        animationId = requestAnimationFrame(animate);
       }
     };
 
-    requestAnimationFrame(animate);
+    animationId = requestAnimationFrame(animate);
+
+    return () => {
+      if (animationId) cancelAnimationFrame(animationId);
+    };
   }, [endValue, duration]);
 
   return value;

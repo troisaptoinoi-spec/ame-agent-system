@@ -10,7 +10,7 @@ i18n
       vi: { translation: vi },
       en: { translation: en },
     },
-    lng: localStorage.getItem('language') || 'vi',
+    lng: localStorage.getItem('innohub_language') || 'vi',
     fallbackLng: 'vi',
     interpolation: { escapeValue: false },
   });

@@ -1,7 +1,9 @@
 // InnoHub Debug System — chỉ áp dụng cho dự án này
 // Sử dụng: window.InnoHubDebug.help() trong browser console
+// Chỉ hoạt động trong development mode
 
 const DEBUG_KEY = 'innohub_debug_mode';
+const IS_DEV = import.meta.env?.DEV ?? false;
 
 const DebugSystem = {
   // Bật/tắt debug mode
@@ -110,8 +112,8 @@ InnoHubDebug.help()        — Hiển thị hướng dẫn này
   },
 };
 
-// Expose to window
-if (typeof window !== 'undefined') {
+// Expose to window — only in development
+if (typeof window !== 'undefined' && IS_DEV) {
   window.InnoHubDebug = DebugSystem;
 }
 

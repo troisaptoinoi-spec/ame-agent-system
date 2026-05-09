@@ -199,8 +199,15 @@ export const authService = {
   },
 
   // Seed admin account — tạo lần đầu khi setup
-  async seedAdmin() {
+  async seedAdmin(adminEmail, adminPassword) {
     try {
+      if (!adminEmail || !adminPassword) {
+        return { success: false, error: 'Email và mật khẩu admin là bắt buộc' };
+      }
+      if (adminPassword.length < 8) {
+        return { success: false, error: 'Mật khẩu admin phải có ít nhất 8 ký tự' };
+      }
+
       // Kiểm tra xem đã có super_admin chưa
       const q = query(collection(db, 'users'), where('role', '==', 'super_admin'));
       const snapshot = await getDocs(q);
@@ -209,7 +216,7 @@ export const authService = {
       }
 
       // Tạo admin user với Firebase Auth
-      const userCredential = await createUserWithEmailAndPassword(auth, 'admin@innohub.com', 'admin123');
+      const userCredential = await createUserWithEmailAndPassword(auth, adminEmail, adminPassword);
       const user = userCredential.user;
 
       // Tạo Firestore document

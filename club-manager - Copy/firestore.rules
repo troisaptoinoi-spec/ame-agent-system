@@ -67,7 +67,7 @@ service cloud.firestore {
     match /documents/{docId} {
       allow read: if isAuthenticated();
       allow create: if isAuthenticated();
-      allow delete: if isAuthenticated();
+      allow delete: if isOwner(resource.data.userId) || isRole(['super_admin', 'admin']);
     }
 
     // ===== Notifications Collection =====
@@ -81,7 +81,7 @@ service cloud.firestore {
     // ===== Activities Collection =====
     match /activities/{activityId} {
       allow read: if isAuthenticated();
-      allow create: if isAuthenticated();
+      allow create: if isAuthenticated() && isOwner(request.resource.data.userId);
       allow delete: if isRole(['super_admin', 'admin']);
     }
 
