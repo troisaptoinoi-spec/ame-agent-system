@@ -1,0 +1,13 @@
+node_modules
+.git
+.gitignore
+.env
+.env.*
+*.md
+plans/
+src/test/
+src/assets/hero.png
+src/assets/vite.svg
+build_output.txt
+build_output_utf8.txt
+eslint.config.js

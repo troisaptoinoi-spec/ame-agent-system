@@ -1,0 +1,105 @@
+{
+  "app": { "name": "InnoHub", "tagline": "Innovation Startup Club" },
+  "nav": {
+    "dashboard": "Dashboard", "tasks": "Tasks", "members": "Members",
+    "leaderboard": "Leaderboard", "events": "Events",
+    "settings": "Settings", "logout": "Logout", "profile": "My Profile"
+  },
+  "login": {
+    "title": "Welcome to InnoHub", "subtitle": "Select a role to explore the system",
+    "selectRole": "Select login role", "loginAs": "Login with this role",
+    "roles": { "admin": "Administrator", "president": "Club President", "leader": "Department Head", "member": "Member" },
+    "roleDesc": {
+      "admin": "Full system access, manage configurations and all data",
+      "president": "Manage the entire club, members and activities",
+      "leader": "Manage your department and its tasks",
+      "member": "View and complete personal tasks"
+    }
+  },
+  "dashboard": {
+    "title": "Dashboard", "welcome": "Hello", "totalMembers": "Total Members",
+    "totalTasks": "Total Tasks", "completedTasks": "Completed", "inProgress": "In Progress",
+    "completionRate": "Completion Rate", "recentActivities": "Recent Activities",
+    "taskProgress": "Task Progress", "departmentOverview": "Department Overview",
+    "upcomingDeadlines": "Upcoming Deadlines", "myTasks": "My Tasks",
+    "myPoints": "My Points", "myRank": "My Rank",
+    "morningGreet": "Good Morning", "afternoonGreet": "Good Afternoon",
+    "eveningGreet": "Good Evening", "quickActions": "Quick Actions"
+  },
+  "tasks": {
+    "title": "Task Board", "addTask": "Add Task", "editTask": "Edit Task",
+    "deleteTask": "Delete Task", "taskTitle": "Task Title", "description": "Description",
+    "assignee": "Assignee", "deadline": "Deadline", "priorityLabel": "Priority",
+    "startDate": "Start Date", "points": "Points",
+    "department": "Department", "tags": "Tags", "comments": "Comments",
+    "attachments": "Attachments", "addComment": "Add a comment...",
+    "addAttachment": "Add Link", "linkUrl": "Link URL", "linkName": "Display Name",
+    "approveDone": "Approve & Complete", "markIncomplete": "Mark Incomplete",
+    "history": "Task History", "board": "Task Board",
+    "status": { "todo": "To Do", "inprogress": "In Progress", "review": "In Review", "done": "Done", "archived_completed": "Archived (Completed)", "archived_incomplete": "Archived (Incomplete)" },
+    "priority": { "low": "Low", "medium": "Medium", "high": "High", "urgent": "Urgent" },
+    "filter": { "all": "All", "myTasks": "My Tasks", "byDepartment": "By Department", "byPriority": "By Priority" },
+    "noTasks": "No tasks yet", "dragHint": "Drag cards to change status",
+    "confirmDelete": "Are you sure you want to delete this task?",
+    "created": "Task created successfully", "updated": "Task updated", "deleted": "Task deleted",
+    "moved": "Task status changed", "archived": "Task archived"
+  },
+  "members": {
+    "title": "Member List", "addMember": "Add Member", "editMember": "Edit",
+    "deleteMember": "Delete Member", "search": "Search members...",
+    "filterDept": "Filter by department", "filterRole": "Filter by role",
+    "allDepts": "All Departments", "allRoles": "All Roles",
+    "gridView": "Grid View", "listView": "List View",
+    "profile": "Profile", "contact": "Contact", "tasksCompleted": "Tasks Completed",
+    "joinDate": "Join Date", "totalMembers": "Total Members",
+    "exportCSV": "Export CSV", "confirmDelete": "Are you sure you want to delete this member?",
+    "created": "Member added", "updated": "Member updated", "deleted": "Member removed",
+    "fields": {
+      "name": "Full Name", "email": "Email", "phone": "Phone Number",
+      "studentId": "Student ID", "department": "Department", "role": "Role",
+      "joinDate": "Join Date", "bio": "Bio"
+    }
+  },
+  "leaderboard": {
+    "title": "Leaderboard", "subtitle": "Top Outstanding Members",
+    "rank": "Rank", "member": "Member", "department": "Department",
+    "points": "Points", "tasksCompleted": "Tasks Done", "badge": "Badge",
+    "filterPeriod": "Filter by Period", "exportCSV": "Export CSV",
+    "periods": { "week": "This Week", "month": "This Month", "quarter": "This Quarter", "all": "All Time" },
+    "badges": { "star": "Star", "rocket": "Pioneer", "crown": "Excellence", "fire": "Passionate", "diamond": "Diamond" }
+  },
+  "events": {
+    "title": "Event Calendar", "addEvent": "Add Event", "noEvents": "No events",
+    "upcoming": "Upcoming", "taskDeadlines": "Task Deadlines",
+    "types": { "meeting": "Meeting", "workshop": "Workshop", "demo": "Demo Day", "other": "Other" }
+  },
+  "profile": {
+    "title": "My Profile", "editProfile": "Edit Profile",
+    "stats": "Statistics", "taskHistory": "Task History",
+    "skills": "Skills", "saved": "Profile saved"
+  },
+  "search": {
+    "placeholder": "Search tasks, members...", "tasks": "Tasks",
+    "members": "Members", "noResults": "No results found", "recent": "Recent searches",
+    "hint": "Press Enter to search"
+  },
+  "settings": {
+    "title": "System Settings", "departments": "Department Management", "addDept": "Add Department",
+    "deptName": "Department Name", "system": "General Settings",
+    "exportData": "Export All Data (JSON)", "importData": "Import Data (JSON)",
+    "resetData": "Reset Demo Data", "confirmReset": "All data will be reset. Are you sure?",
+    "deptCreated": "Department added", "deptDeleted": "Department deleted",
+    "confirmDeleteDept": "Deleting this department will affect related members and tasks."
+  },
+  "common": {
+    "save": "Save", "cancel": "Cancel", "delete": "Delete", "edit": "Edit", "add": "Add",
+    "confirm": "Confirm", "close": "Close", "loading": "Loading...", "noData": "No data available",
+    "search": "Search", "filter": "Filter", "all": "All", "today": "Today",
+    "yesterday": "Yesterday", "daysAgo": "days ago", "submit": "Submit",
+    "required": "Required", "optional": "Optional",
+    "success": "Success", "error": "Error", "warning": "Warning", "info": "Info",
+    "darkMode": "Dark Mode", "lightMode": "Light Mode", "language": "Language",
+    "areYouSure": "Are you sure?", "thisCannotBeUndone": "This action cannot be undone.",
+    "export": "Export", "import": "Import", "download": "Download"
+  }
+}

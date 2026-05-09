@@ -1,0 +1,105 @@
+{
+  "app": { "name": "InnoHub", "tagline": "CLB Khởi nghiệp Đổi mới Sáng tạo" },
+  "nav": {
+    "dashboard": "Tổng quan", "tasks": "Nhiệm vụ", "members": "Thành viên",
+    "leaderboard": "Xếp hạng", "events": "Lịch sự kiện",
+    "settings": "Cài đặt", "logout": "Đăng xuất", "profile": "Hồ sơ của tôi"
+  },
+  "login": {
+    "title": "Chào mừng đến với InnoHub", "subtitle": "Chọn vai trò để trải nghiệm hệ thống",
+    "selectRole": "Chọn vai trò đăng nhập", "loginAs": "Đăng nhập với vai trò này",
+    "roles": { "admin": "Quản trị viên", "president": "Chủ nhiệm CLB", "leader": "Trưởng ban", "member": "Thành viên" },
+    "roleDesc": {
+      "admin": "Toàn quyền hệ thống, quản lý cấu hình và tất cả dữ liệu",
+      "president": "Quản lý toàn bộ CLB, thành viên và hoạt động",
+      "leader": "Quản lý ban chuyên môn và nhiệm vụ của ban",
+      "member": "Xem và thực hiện nhiệm vụ cá nhân"
+    }
+  },
+  "dashboard": {
+    "title": "Tổng quan", "welcome": "Xin chào", "totalMembers": "Tổng thành viên",
+    "totalTasks": "Tổng nhiệm vụ", "completedTasks": "Đã hoàn thành", "inProgress": "Đang thực hiện",
+    "completionRate": "Tỷ lệ hoàn thành", "recentActivities": "Hoạt động gần đây",
+    "taskProgress": "Tiến độ nhiệm vụ", "departmentOverview": "Tổng quan các ban",
+    "upcomingDeadlines": "Hạn chót sắp tới", "myTasks": "Nhiệm vụ của tôi",
+    "myPoints": "Điểm tích lũy", "myRank": "Xếp hạng của tôi",
+    "morningGreet": "Chào buổi sáng", "afternoonGreet": "Chào buổi chiều",
+    "eveningGreet": "Chào buổi tối", "quickActions": "Thao tác nhanh"
+  },
+  "tasks": {
+    "title": "Bảng nhiệm vụ", "addTask": "Thêm nhiệm vụ", "editTask": "Chỉnh sửa nhiệm vụ",
+    "deleteTask": "Xóa nhiệm vụ", "taskTitle": "Tiêu đề nhiệm vụ", "description": "Mô tả",
+    "assignee": "Người phụ trách", "deadline": "Hạn chót", "priorityLabel": "Độ ưu tiên",
+    "startDate": "Ngày bắt đầu", "points": "Điểm thưởng",
+    "department": "Ban", "tags": "Nhãn", "comments": "Bình luận",
+    "attachments": "Tệp đính kèm", "addComment": "Thêm bình luận...",
+    "addAttachment": "Thêm liên kết", "linkUrl": "Đường dẫn (URL)", "linkName": "Tên hiển thị",
+    "approveDone": "Duyệt Hoàn thành", "markIncomplete": "Không hoàn thành",
+    "history": "Lịch sử nhiệm vụ", "board": "Bảng nhiệm vụ",
+    "status": { "todo": "Cần làm", "inprogress": "Đang làm", "review": "Đang xét duyệt", "done": "Hoàn thành", "archived_completed": "Đã hoàn thành", "archived_incomplete": "Không hoàn thành" },
+    "priority": { "low": "Thấp", "medium": "Trung bình", "high": "Cao", "urgent": "Khẩn cấp" },
+    "filter": { "all": "Tất cả", "myTasks": "Nhiệm vụ của tôi", "byDepartment": "Theo ban", "byPriority": "Theo độ ưu tiên" },
+    "noTasks": "Chưa có nhiệm vụ nào", "dragHint": "Kéo thẻ để thay đổi trạng thái",
+    "confirmDelete": "Bạn có chắc muốn xóa nhiệm vụ này?",
+    "created": "Đã tạo nhiệm vụ mới", "updated": "Đã cập nhật nhiệm vụ", "deleted": "Đã xóa nhiệm vụ",
+    "moved": "Đã chuyển trạng thái", "archived": "Đã lưu trữ nhiệm vụ"
+  },
+  "members": {
+    "title": "Danh sách thành viên", "addMember": "Thêm thành viên", "editMember": "Chỉnh sửa",
+    "deleteMember": "Xóa thành viên", "search": "Tìm kiếm thành viên...",
+    "filterDept": "Lọc theo ban", "filterRole": "Lọc theo vai trò",
+    "allDepts": "Tất cả các ban", "allRoles": "Tất cả vai trò",
+    "gridView": "Dạng lưới", "listView": "Dạng danh sách",
+    "profile": "Hồ sơ", "contact": "Liên hệ", "tasksCompleted": "Nhiệm vụ hoàn thành",
+    "joinDate": "Ngày tham gia", "totalMembers": "Tổng số thành viên",
+    "exportCSV": "Xuất CSV", "confirmDelete": "Bạn có chắc muốn xóa thành viên này?",
+    "created": "Đã thêm thành viên mới", "updated": "Đã cập nhật thông tin", "deleted": "Đã xóa thành viên",
+    "fields": {
+      "name": "Họ và tên", "email": "Email", "phone": "Số điện thoại",
+      "studentId": "Mã số sinh viên", "department": "Ban", "role": "Vai trò",
+      "joinDate": "Ngày tham gia", "bio": "Giới thiệu"
+    }
+  },
+  "leaderboard": {
+    "title": "Bảng xếp hạng", "subtitle": "Top thành viên xuất sắc",
+    "rank": "Hạng", "member": "Thành viên", "department": "Ban",
+    "points": "Điểm", "tasksCompleted": "Nhiệm vụ HT", "badge": "Huy hiệu",
+    "filterPeriod": "Lọc theo kỳ", "exportCSV": "Xuất CSV",
+    "periods": { "week": "Tuần này", "month": "Tháng này", "quarter": "Quý này", "all": "Tất cả" },
+    "badges": { "star": "Ngôi sao", "rocket": "Tiên phong", "crown": "Xuất sắc", "fire": "Nhiệt huyết", "diamond": "Kim cương" }
+  },
+  "events": {
+    "title": "Lịch sự kiện", "addEvent": "Thêm sự kiện", "noEvents": "Không có sự kiện",
+    "upcoming": "Sắp diễn ra", "taskDeadlines": "Hạn chót nhiệm vụ",
+    "types": { "meeting": "Họp", "workshop": "Workshop", "demo": "Demo Day", "other": "Khác" }
+  },
+  "profile": {
+    "title": "Hồ sơ cá nhân", "editProfile": "Chỉnh sửa hồ sơ",
+    "stats": "Thống kê", "taskHistory": "Lịch sử nhiệm vụ",
+    "skills": "Kỹ năng", "saved": "Đã lưu hồ sơ"
+  },
+  "search": {
+    "placeholder": "Tìm kiếm nhiệm vụ, thành viên...", "tasks": "Nhiệm vụ",
+    "members": "Thành viên", "noResults": "Không tìm thấy kết quả", "recent": "Tìm kiếm gần đây",
+    "hint": "Nhấn Enter để tìm kiếm"
+  },
+  "settings": {
+    "title": "Cài đặt hệ thống", "departments": "Quản lý ban", "addDept": "Thêm ban",
+    "deptName": "Tên ban", "system": "Cài đặt chung", "exportData": "Xuất toàn bộ dữ liệu (JSON)",
+    "importData": "Nhập dữ liệu (JSON)", "resetData": "Reset dữ liệu demo",
+    "confirmReset": "Toàn bộ dữ liệu sẽ được đặt lại. Bạn có chắc chắn?",
+    "deptCreated": "Đã thêm ban mới", "deptDeleted": "Đã xóa ban",
+    "confirmDeleteDept": "Xóa ban này sẽ ảnh hưởng đến thành viên và nhiệm vụ liên quan."
+  },
+  "common": {
+    "save": "Lưu", "cancel": "Hủy", "delete": "Xóa", "edit": "Sửa", "add": "Thêm",
+    "confirm": "Xác nhận", "close": "Đóng", "loading": "Đang tải...", "noData": "Không có dữ liệu",
+    "search": "Tìm kiếm", "filter": "Lọc", "all": "Tất cả", "today": "Hôm nay",
+    "yesterday": "Hôm qua", "daysAgo": "ngày trước", "submit": "Gửi",
+    "required": "Bắt buộc", "optional": "Không bắt buộc",
+    "success": "Thành công", "error": "Lỗi", "warning": "Cảnh báo", "info": "Thông tin",
+    "darkMode": "Chế độ tối", "lightMode": "Chế độ sáng", "language": "Ngôn ngữ",
+    "areYouSure": "Bạn có chắc không?", "thisCannotBeUndone": "Hành động này không thể hoàn tác.",
+    "export": "Xuất", "import": "Nhập", "download": "Tải xuống"
+  }
+}

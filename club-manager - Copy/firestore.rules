@@ -1,0 +1,95 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // Helper functions
+    function isAuthenticated() {
+      return request.auth != null;
+    }
+
+    function isOwner(userId) {
+      return request.auth.uid == userId;
+    }
+
+    // Get user role from Firestore document (no Cloud Functions needed)
+    function getUserRole() {
+      return get(/databases/$(database)/documents/users/$(request.auth.uid)).data.role;
+    }
+
+    function isRole(roles) {
+      return isAuthenticated() && getUserRole() in roles;
+    }
+
+    function isProtectedUser(userId) {
+      return get(/databases/$(database)/documents/users/$(userId)).data.isProtected == true;
+    }
+
+    // ===== Users Collection =====
+    match /users/{userId} {
+      allow read: if isAuthenticated();
+      allow create: if isAuthenticated(); // Allow self-registration
+      allow update: if isRole(['super_admin', 'admin'])
+                    || (isOwner(userId) && !request.resource.data.diff(resource.data).affectedKeys().hasAny(['role', 'isProtected', 'isActive']));
+      allow delete: if isRole(['super_admin', 'admin']) && !isProtectedUser(userId);
+    }
+
+    // ===== Tasks Collection =====
+    match /tasks/{taskId} {
+      allow read: if isAuthenticated();
+      allow create: if isRole(['super_admin', 'admin', 'manager']);
+      allow update: if isRole(['super_admin', 'admin', 'manager'])
+                    || (isOwner(resource.data.assigneeId) && !request.resource.data.diff(resource.data).affectedKeys().hasAny(['assigneeId', 'departmentId', 'points']));
+      allow delete: if isRole(['super_admin', 'admin', 'manager']);
+    }
+
+    // ===== Departments Collection =====
+    match /departments/{deptId} {
+      allow read: if isAuthenticated();
+      allow write: if isRole(['super_admin', 'admin']);
+    }
+
+    // ===== Events Collection =====
+    match /events/{eventId} {
+      allow read: if isAuthenticated();
+      allow create, update: if isRole(['super_admin', 'admin', 'manager']);
+      allow delete: if isRole(['super_admin', 'admin']);
+    }
+
+    // ===== Finance Collection =====
+    match /finance/{transactionId} {
+      allow read: if isRole(['super_admin', 'admin', 'manager']);
+      allow create: if isRole(['super_admin', 'admin', 'manager']);
+      allow update: if isRole(['super_admin', 'admin', 'manager']);
+      allow delete: if isRole(['super_admin', 'admin']);
+    }
+
+    // ===== Documents Collection =====
+    match /documents/{docId} {
+      allow read: if isAuthenticated();
+      allow create: if isAuthenticated();
+      allow delete: if isAuthenticated();
+    }
+
+    // ===== Notifications Collection =====
+    match /notifications/{notifId} {
+      allow read: if isOwner(resource.data.userId);
+      allow create: if isAuthenticated();
+      allow update: if isOwner(resource.data.userId);
+      allow delete: if isOwner(resource.data.userId);
+    }
+
+    // ===== Activities Collection =====
+    match /activities/{activityId} {
+      allow read: if isAuthenticated();
+      allow create: if isAuthenticated();
+      allow delete: if isRole(['super_admin', 'admin']);
+    }
+
+    // ===== Audit Log Collection =====
+    match /audit_log/{logId} {
+      allow read: if isRole(['super_admin', 'admin']);
+      allow create: if isAuthenticated();
+      allow update, delete: if false;
+    }
+  }
+}

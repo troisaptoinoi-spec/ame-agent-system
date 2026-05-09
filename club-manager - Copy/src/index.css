@@ -1,0 +1,1269 @@
+/* ============================================================
+   InnoHub CLB Manager — World-class Design System
+   ============================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+
+/* ============================================================
+   1. CSS VARIABLES — Design Tokens
+   ============================================================ */
+
+:root {
+  /* Typography */
+  --font: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
+
+  /* Spacing (8px grid) */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 20px;
+  --space-6: 24px;
+  --space-8: 32px;
+  --space-10: 40px;
+  --space-12: 48px;
+
+  /* Border Radius */
+  --radius-xs: 6px;
+  --radius-sm: 8px;
+  --radius: 12px;
+  --radius-lg: 16px;
+  --radius-xl: 20px;
+  --radius-2xl: 24px;
+  --radius-full: 9999px;
+
+  /* Transitions */
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-spring: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  --duration-fast: 150ms;
+  --duration: 200ms;
+  --duration-slow: 300ms;
+  --duration-slower: 500ms;
+  --transition: var(--duration) var(--ease-out);
+  --transition-slow: var(--duration-slow) var(--ease-out);
+
+  /* Shadow System — 5 levels */
+  --shadow-1: 0 1px 2px rgba(0,0,0,0.05);
+  --shadow-2: 0 4px 6px rgba(0,0,0,0.07);
+  --shadow-3: 0 10px 15px rgba(0,0,0,0.1);
+  --shadow-4: 0 20px 40px rgba(0,0,0,0.15);
+  --shadow-5: 0 30px 60px rgba(0,0,0,0.2);
+  --shadow: var(--shadow-3);
+  --shadow-lg: var(--shadow-4);
+
+  /* Section Accent Gradients */
+  --accent-dashboard: linear-gradient(135deg, #4f46e5, #7c3aed, #06b6d4);
+  --accent-members: linear-gradient(135deg, #7c3aed, #a855f7, #d946ef);
+  --accent-events: linear-gradient(135deg, #06b6d4, #10b981, #34d399);
+  --accent-tasks: linear-gradient(135deg, #f59e0b, #f97316, #ef4444);
+  --accent-leaderboard: linear-gradient(135deg, #eab308, #f59e0b, #f43f5e);
+  --accent-settings: linear-gradient(135deg, #64748b, #3b82f6, #6366f1);
+}
+
+/* ============================================================
+   2. DARK THEME
+   ============================================================ */
+
+[data-theme="dark"] {
+  --bg: #0d0b1a;
+  --bg2: rgba(19, 16, 36, 0.85);
+  --bg3: rgba(26, 21, 48, 0.65);
+  --bg4: rgba(34, 28, 61, 0.5);
+  --border: rgba(124,110,245,0.08);
+  --border-hover: rgba(124,110,245,0.18);
+  --text: #f0eef8;
+  --text2: #a09cc0;
+  --text3: #6b6590;
+  --primary: #8b7cf7;
+  --primary-hover: #7c6ef5;
+  --primary-light: rgba(139,124,247,0.12);
+  --success: #10b981;
+  --success-light: rgba(16,185,129,0.12);
+  --warning: #f59e0b;
+  --warning-light: rgba(245,158,11,0.12);
+  --danger: #ef4444;
+  --danger-light: rgba(239,68,68,0.12);
+  --info: #06b6d4;
+  --info-light: rgba(6,182,212,0.12);
+  --card: rgba(139,124,247,0.03);
+  --glass: rgba(139,124,247,0.05);
+  --glass-border: rgba(139,124,247,0.1);
+  --glow: rgba(139,124,247,0.3);
+  --glow-lg: rgba(139,124,247,0.5);
+  --noise: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
+}
+
+/* ============================================================
+   3. LIGHT THEME
+   ============================================================ */
+
+[data-theme="light"] {
+  --bg: #f4f4fb;
+  --bg2: rgba(255, 255, 255, 0.85);
+  --bg3: rgba(248, 248, 255, 0.7);
+  --bg4: #ededf5;
+  --border: rgba(0,0,0,0.06);
+  --border-hover: rgba(0,0,0,0.12);
+  --text: #1a1a2e;
+  --text2: #555575;
+  --text3: #9898b8;
+  --primary: #6b5de4;
+  --primary-hover: #5a4dd3;
+  --primary-light: rgba(107,93,228,0.08);
+  --success: #059669;
+  --success-light: rgba(5,150,105,0.08);
+  --warning: #d97706;
+  --warning-light: rgba(217,119,6,0.08);
+  --danger: #dc2626;
+  --danger-light: rgba(220,38,38,0.08);
+  --info: #0891b2;
+  --info-light: rgba(8,145,178,0.08);
+  --card: rgba(255,255,255,0.7);
+  --glass: rgba(255,255,255,0.6);
+  --glass-border: rgba(0,0,0,0.06);
+  --glow: rgba(107,93,228,0.15);
+  --glow-lg: rgba(107,93,228,0.25);
+  --shadow-1: 0 1px 3px rgba(0,0,0,0.04);
+  --shadow-2: 0 4px 8px rgba(0,0,0,0.06);
+  --shadow-3: 0 10px 20px rgba(0,0,0,0.08);
+  --shadow-4: 0 20px 40px rgba(0,0,0,0.1);
+  --shadow-5: 0 30px 60px rgba(0,0,0,0.12);
+  --noise: none;
+}
+
+/* ============================================================
+   4. RESET & BASE
+   ============================================================ */
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
+
+body {
+  font-family: var(--font);
+  background: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+  transition: background var(--transition-slow), color var(--transition-slow);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  line-height: 1.6;
+  font-size: clamp(0.875rem, 1.2vw, 1rem);
+}
+
+/* Noise texture overlay for depth */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background: var(--noise);
+  pointer-events: none;
+  z-index: 9998;
+  opacity: 0.4;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--border); border-radius: var(--radius-full); }
+::-webkit-scrollbar-thumb:hover { background: var(--text3); }
+
+/* Selection */
+::selection { background: var(--primary-light); color: var(--primary); }
+
+/* ============================================================
+   5. TYPOGRAPHY
+   ============================================================ */
+
+h1 {
+  font-size: clamp(1.5rem, 3.5vw, 2rem);
+  font-weight: 800;
+  letter-spacing: -0.025em;
+  line-height: 1.2;
+}
+
+h2 {
+  font-size: clamp(1.25rem, 2.5vw, 1.5rem);
+  font-weight: 700;
+  letter-spacing: -0.015em;
+  line-height: 1.3;
+}
+
+h3 {
+  font-size: clamp(1rem, 2vw, 1.25rem);
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  line-height: 1.4;
+}
+
+/* Gradient text utility */
+.text-gradient {
+  background: var(--accent-dashboard);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ============================================================
+   6. LAYOUT
+   ============================================================ */
+
+.app-layout { display: flex; min-height: 100vh; }
+
+/* Sidebar — Glass-morphism */
+.sidebar {
+  width: 240px;
+  background: var(--glass);
+  -webkit-backdrop-filter: blur(20px);
+  backdrop-filter: blur(20px);
+  border-right: 1px solid var(--glass-border);
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  top: 0; left: 0; bottom: 0;
+  z-index: 100;
+  transition: width var(--transition), transform var(--transition);
+}
+
+@supports not (backdrop-filter: blur(20px)) {
+  .sidebar { background: var(--bg2); }
+}
+
+.sidebar.collapsed { width: 64px; }
+
+.sidebar-logo {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding: var(--space-5) var(--space-4);
+  border-bottom: 1px solid var(--border);
+}
+
+.logo-icon {
+  width: 36px; height: 36px;
+  background: var(--accent-dashboard);
+  border-radius: var(--radius);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 18px;
+  flex-shrink: 0;
+  box-shadow: 0 4px 12px rgba(124,110,245,0.3);
+}
+
+.logo-text {
+  font-size: 18px;
+  font-weight: 800;
+  background: var(--accent-dashboard);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.sidebar-nav { flex: 1; padding: var(--space-3) var(--space-2); overflow-y: auto; }
+
+.nav-item {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding: 10px 12px;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: all var(--transition);
+  color: var(--text2);
+  font-size: 14px;
+  font-weight: 500;
+  white-space: nowrap;
+  overflow: hidden;
+  margin-bottom: 2px;
+  text-decoration: none;
+  position: relative;
+}
+
+.nav-item:hover {
+  background: var(--primary-light);
+  color: var(--primary);
+  transform: translateX(2px);
+}
+
+.nav-item.active {
+  background: var(--primary-light);
+  color: var(--primary);
+  font-weight: 600;
+}
+
+.nav-item.active::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 3px;
+  height: 20px;
+  background: var(--primary);
+  border-radius: 0 var(--radius-full) var(--radius-full) 0;
+}
+
+.nav-icon { font-size: 18px; flex-shrink: 0; width: 20px; text-align: center; }
+
+.sidebar-footer { padding: var(--space-3) var(--space-2); border-top: 1px solid var(--border); }
+
+/* Main Content */
+.main-content {
+  flex: 1;
+  margin-left: 240px;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  transition: margin-left var(--transition);
+}
+
+.main-content.sidebar-collapsed { margin-left: 64px; }
+
+/* Header — Glass-morphism */
+.header {
+  background: var(--glass);
+  -webkit-backdrop-filter: blur(20px);
+  backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--glass-border);
+  padding: 0 var(--space-6);
+  height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: sticky;
+  top: 0;
+  z-index: 50;
+}
+
+@supports not (backdrop-filter: blur(20px)) {
+  .header { background: var(--bg2); }
+}
+
+.header-left { display: flex; align-items: center; gap: var(--space-4); }
+.header-right { display: flex; align-items: center; gap: var(--space-3); }
+.page-title { font-size: 20px; font-weight: 700; }
+.page-content { padding: var(--space-6); flex: 1; }
+
+/* ============================================================
+   7. BUTTONS — Micro-interactions
+   ============================================================ */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: 8px 16px;
+  border-radius: var(--radius-sm);
+  border: none;
+  cursor: pointer;
+  font-family: var(--font);
+  font-size: 14px;
+  font-weight: 500;
+  transition: all var(--transition);
+  white-space: nowrap;
+  text-decoration: none;
+  position: relative;
+  overflow: hidden;
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+/* Ripple effect */
+.btn::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle, rgba(255,255,255,0.3) 0%, transparent 70%);
+  transform: scale(0);
+  opacity: 0;
+  transition: transform 0.5s, opacity 0.5s;
+}
+
+.btn:active::after {
+  transform: scale(2.5);
+  opacity: 1;
+  transition: 0s;
+}
+
+.btn-primary {
+  background: var(--primary);
+  color: white;
+  box-shadow: 0 2px 8px rgba(124,110,245,0.3);
+}
+
+.btn-primary:hover {
+  background: var(--primary-hover);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 16px rgba(124,110,245,0.4);
+}
+
+.btn-primary:active { transform: scale(0.97) translateY(0); }
+
+.btn-secondary { background: var(--bg4); color: var(--text); }
+.btn-secondary:hover { background: var(--bg3); transform: translateY(-1px); }
+.btn-secondary:active { transform: scale(0.97); }
+
+.btn-ghost { background: transparent; color: var(--text2); }
+.btn-ghost:hover { background: var(--bg3); color: var(--text); }
+
+.btn-danger {
+  background: var(--danger-light);
+  color: var(--danger);
+  box-shadow: 0 2px 8px rgba(239,68,68,0.15);
+}
+
+.btn-danger:hover {
+  background: var(--danger);
+  color: white;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 16px rgba(239,68,68,0.3);
+}
+
+.btn-danger:active { transform: scale(0.97); }
+
+.btn-sm { padding: 6px 12px; font-size: 13px; }
+.btn-icon { width: 36px; height: 36px; padding: 0; justify-content: center; border-radius: var(--radius-sm); }
+
+/* Focus-visible for keyboard navigation */
+.btn:focus-visible, .form-control:focus-visible, .nav-item:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+}
+
+/* ============================================================
+   8. CARDS — Glass-morphism + 3D Depth
+   ============================================================ */
+
+.card {
+  background: var(--glass);
+  -webkit-backdrop-filter: blur(16px);
+  backdrop-filter: blur(16px);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-xl);
+  padding: var(--space-5);
+  transition: all var(--transition);
+  box-shadow: var(--shadow-2);
+  position: relative;
+}
+
+@supports not (backdrop-filter: blur(16px)) {
+  .card { background: var(--bg2); }
+}
+
+.card:hover {
+  border-color: var(--border-hover);
+  box-shadow: var(--shadow-3);
+  transform: translateY(-2px);
+}
+
+/* Stat Card */
+.stat-card {
+  background: var(--glass);
+  -webkit-backdrop-filter: blur(16px);
+  backdrop-filter: blur(16px);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-xl);
+  padding: var(--space-5);
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+  transition: all var(--transition);
+  box-shadow: var(--shadow-2);
+}
+
+.stat-card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-4);
+  border-color: var(--border-hover);
+}
+
+.stat-icon {
+  width: 48px; height: 48px;
+  border-radius: var(--radius);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 22px;
+  flex-shrink: 0;
+}
+
+.stat-value {
+  font-size: clamp(1.5rem, 3vw, 1.75rem);
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: -0.02em;
+}
+
+.stat-label { font-size: 13px; color: var(--text2); margin-top: var(--space-1); }
+.stat-change { font-size: 12px; margin-top: var(--space-1); }
+.stat-change.up { color: var(--success); }
+
+/* ============================================================
+   9. GRID SYSTEM
+   ============================================================ */
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: var(--space-4);
+  margin-bottom: var(--space-6);
+}
+
+.grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-4); }
+.grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-4); }
+
+/* ============================================================
+   10. BADGES
+   ============================================================ */
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-1);
+  padding: 3px 10px;
+  border-radius: var(--radius-full);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+.badge-primary { background: var(--primary-light); color: var(--primary); }
+.badge-success { background: var(--success-light); color: var(--success); }
+.badge-warning { background: var(--warning-light); color: var(--warning); }
+.badge-danger { background: var(--danger-light); color: var(--danger); }
+.badge-info { background: var(--info-light); color: var(--info); }
+.badge-gray { background: var(--bg4); color: var(--text2); }
+
+/* ============================================================
+   11. AVATAR
+   ============================================================ */
+
+.avatar {
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-weight: 700;
+  flex-shrink: 0;
+  color: white;
+  font-size: 14px;
+  transition: transform var(--transition);
+}
+
+.avatar.clickable:hover { transform: scale(1.1); }
+.avatar-sm { width: 28px; height: 28px; font-size: 11px; }
+.avatar-md { width: 36px; height: 36px; font-size: 14px; }
+.avatar-lg { width: 48px; height: 48px; font-size: 18px; }
+.avatar-xl { width: 72px; height: 72px; font-size: 26px; }
+
+/* ============================================================
+   12. MODAL — 3D Depth + Glass
+   ============================================================ */
+
+.modal-overlay {
+  position: fixed; inset: 0;
+  background: rgba(0,0,0,0.6);
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+  display: flex; align-items: center; justify-content: center;
+  z-index: 1000;
+  padding: var(--space-4);
+  animation: fadeIn var(--duration) var(--ease-out);
+}
+
+.modal {
+  background: var(--bg2);
+  -webkit-backdrop-filter: blur(24px);
+  backdrop-filter: blur(24px);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-2xl);
+  width: 100%;
+  max-height: 90vh;
+  overflow-y: auto;
+  animation: modalEnter var(--duration-slow) var(--ease-spring);
+  box-shadow: var(--shadow-5);
+}
+
+@supports not (backdrop-filter: blur(24px)) {
+  .modal { background: var(--bg2); }
+}
+
+.modal-sm { max-width: 420px; }
+.modal-md { max-width: 560px; }
+.modal-lg { max-width: 720px; }
+.modal-xl { max-width: 920px; }
+
+.modal-header {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: var(--space-5) var(--space-6);
+  border-bottom: 1px solid var(--border);
+  position: sticky; top: 0;
+  background: var(--bg2);
+  z-index: 1;
+  border-radius: var(--radius-2xl) var(--radius-2xl) 0 0;
+}
+
+.modal-title { font-size: 18px; font-weight: 700; }
+.modal-body { padding: var(--space-6); }
+
+.modal-footer {
+  display: flex; justify-content: flex-end; gap: var(--space-2);
+  padding: var(--space-4) var(--space-6);
+  border-top: 1px solid var(--border);
+}
+
+/* ============================================================
+   13. FORMS
+   ============================================================ */
+
+.form-group { margin-bottom: var(--space-4); }
+
+.form-label {
+  display: block;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text2);
+  margin-bottom: var(--space-2);
+  letter-spacing: 0.01em;
+}
+
+.form-control {
+  width: 100%;
+  background: var(--bg3);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 10px 12px;
+  color: var(--text);
+  font-family: var(--font);
+  font-size: 14px;
+  transition: all var(--transition);
+  outline: none;
+}
+
+.form-control:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px var(--primary-light);
+}
+
+.input-error { border-color: var(--danger) !important; box-shadow: 0 0 0 3px var(--danger-light) !important; }
+.field-error { font-size: 12px; color: var(--danger); margin-top: var(--space-1); }
+.form-control::placeholder { color: var(--text3); }
+textarea.form-control { resize: vertical; min-height: 80px; }
+select.form-control { cursor: pointer; }
+
+/* ============================================================
+   14. KANBAN BOARD
+   ============================================================ */
+
+.kanban-board {
+  display: flex;
+  gap: var(--space-4);
+  overflow-x: auto;
+  padding-bottom: var(--space-4);
+  min-height: calc(100vh - 200px);
+}
+
+.kanban-col {
+  flex: 1;
+  min-width: 300px;
+  background: var(--glass);
+  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(12px);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-xl);
+  display: flex;
+  flex-direction: column;
+  max-height: calc(100vh - 200px);
+}
+
+@supports not (backdrop-filter: blur(12px)) {
+  .kanban-col { background: var(--bg2); }
+}
+
+.kanban-col-header {
+  padding: 14px var(--space-4);
+  border-bottom: 1px solid var(--border);
+  display: flex; align-items: center; justify-content: space-between;
+  font-weight: 600;
+  font-size: 14px;
+  border-radius: var(--radius-xl) var(--radius-xl) 0 0;
+}
+
+.kanban-col-body {
+  flex: 1;
+  overflow-y: auto;
+  padding: var(--space-3);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* Task Card — 3D Depth */
+.task-card {
+  background: var(--glass);
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius);
+  padding: 14px;
+  cursor: grab;
+  transition: all var(--transition);
+  position: relative;
+  box-shadow: var(--shadow-1);
+}
+
+.task-card:hover {
+  border-color: var(--primary);
+  box-shadow: var(--shadow-3), 0 0 20px var(--glow);
+  transform: translateY(-2px) scale(1.01);
+}
+
+.task-card:active { cursor: grabbing; transform: scale(0.98); }
+.task-card.dragging { opacity: 0.4; }
+
+.task-card-title { font-size: 13px; font-weight: 600; margin-bottom: var(--space-2); line-height: 1.4; }
+.task-card-tags { display: flex; flex-wrap: wrap; gap: var(--space-1); margin-bottom: var(--space-2); }
+.task-card-footer { display: flex; align-items: center; justify-content: space-between; margin-top: var(--space-2); }
+.task-card-deadline { font-size: 11px; color: var(--text3); display: flex; align-items: center; gap: var(--space-1); }
+.task-card-deadline.overdue { color: var(--danger); }
+
+/* Priority bar */
+.priority-bar { position: absolute; top: 0; left: 0; width: 3px; height: 100%; border-radius: var(--radius) 0 0 var(--radius); }
+
+/* ============================================================
+   15. MEMBER CARD
+   ============================================================ */
+
+.member-card {
+  background: var(--glass);
+  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(12px);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-xl);
+  padding: var(--space-5);
+  display: flex; flex-direction: column; align-items: center; text-align: center;
+  transition: all var(--transition);
+  cursor: pointer;
+  box-shadow: var(--shadow-2);
+}
+
+.member-card:hover {
+  border-color: var(--primary);
+  transform: translateY(-4px) scale(1.02);
+  box-shadow: var(--shadow-4), 0 0 30px var(--glow);
+}
+
+.member-name { font-size: 15px; font-weight: 600; margin-top: var(--space-3); }
+.member-role-badge { margin-top: var(--space-1); }
+.member-dept { font-size: 12px; color: var(--text2); margin-top: var(--space-1); }
+.member-stats { display: flex; gap: var(--space-4); margin-top: var(--space-3); font-size: 12px; color: var(--text2); }
+.member-stat { display: flex; flex-direction: column; align-items: center; }
+.member-stat-val { font-size: 16px; font-weight: 700; color: var(--text); }
+
+/* ============================================================
+   16. LEADERBOARD
+   ============================================================ */
+
+.podium { display: flex; align-items: flex-end; justify-content: center; gap: var(--space-4); margin: var(--space-6) 0 var(--space-8); }
+.podium-item { display: flex; flex-direction: column; align-items: center; gap: var(--space-2); }
+.podium-block {
+  border-radius: var(--radius) var(--radius) 0 0;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 24px; font-weight: 800; color: white;
+  width: 80px;
+}
+
+.podium-1 { height: 100px; background: linear-gradient(135deg, #f59e0b, #f97316); box-shadow: 0 8px 24px rgba(245,158,11,0.4); }
+.podium-2 { height: 75px; background: linear-gradient(135deg, #9ca3af, #6b7280); box-shadow: 0 8px 24px rgba(156,163,175,0.3); }
+.podium-3 { height: 60px; background: linear-gradient(135deg, #b45309, #92400e); box-shadow: 0 8px 24px rgba(180,83,9,0.3); }
+
+/* ============================================================
+   17. PROGRESS BAR
+   ============================================================ */
+
+.progress-bar { background: var(--bg4); border-radius: var(--radius-full); overflow: hidden; height: 8px; }
+
+.progress-fill {
+  height: 100%;
+  border-radius: var(--radius-full);
+  transition: width 0.8s var(--ease-out);
+  background: var(--accent-dashboard);
+  position: relative;
+}
+
+.progress-fill::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+  animation: shimmer 2s infinite;
+}
+
+/* ============================================================
+   18. TABS
+   ============================================================ */
+
+.tabs { display: flex; gap: var(--space-1); background: var(--bg3); border-radius: var(--radius-sm); padding: var(--space-1); margin-bottom: var(--space-5); }
+
+.tab {
+  padding: var(--space-2) var(--space-4);
+  border-radius: var(--radius-xs);
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text2);
+  transition: all var(--transition);
+  border: none;
+  background: transparent;
+  font-family: var(--font);
+}
+
+.tab.active { background: var(--bg2); color: var(--text); box-shadow: var(--shadow-2); }
+.tab:hover:not(.active) { color: var(--text); }
+
+/* ============================================================
+   19. SEARCH & FILTER
+   ============================================================ */
+
+.filter-bar { display: flex; align-items: center; gap: var(--space-3); margin-bottom: var(--space-5); flex-wrap: wrap; }
+.search-input-wrap { position: relative; flex: 1; min-width: 200px; }
+.search-icon { position: absolute; left: 10px; top: 50%; transform: translateY(-50%); color: var(--text3); font-size: 14px; }
+.search-input { padding-left: 34px; }
+
+/* ============================================================
+   20. ANIMATIONS
+   ============================================================ */
+
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+@keyframes slideUp { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes slideIn { from { transform: translateX(-100%); } to { transform: translateX(0); } }
+@keyframes pulse { 0%,100% { opacity: 1; } 50% { opacity: 0.4; } }
+
+@keyframes modalEnter {
+  from { opacity: 0; transform: scale(0.95) translateY(10px); }
+  to { opacity: 1; transform: scale(1) translateY(0); }
+}
+
+@keyframes shimmer {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+@keyframes glowPulse {
+  0%, 100% { box-shadow: 0 0 20px var(--glow); }
+  50% { box-shadow: 0 0 40px var(--glow-lg); }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+}
+
+.fade-in { animation: fadeIn var(--duration-slow) var(--ease-out); }
+.slide-up { animation: slideUp var(--duration-slow) var(--ease-out); }
+
+/* Page enter animation */
+.page-enter { animation: slideUp 0.4s var(--ease-out); }
+
+/* Staggered children */
+.stagger > * {
+  opacity: 0;
+  animation: slideUp 0.4s var(--ease-out) forwards;
+}
+.stagger > *:nth-child(1) { animation-delay: 0.05s; }
+.stagger > *:nth-child(2) { animation-delay: 0.1s; }
+.stagger > *:nth-child(3) { animation-delay: 0.15s; }
+.stagger > *:nth-child(4) { animation-delay: 0.2s; }
+.stagger > *:nth-child(5) { animation-delay: 0.25s; }
+.stagger > *:nth-child(6) { animation-delay: 0.3s; }
+
+/* ============================================================
+   21. SKELETON LOADING
+   ============================================================ */
+
+.skeleton {
+  background: linear-gradient(90deg, var(--bg3) 25%, var(--bg4) 50%, var(--bg3) 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+  border-radius: var(--radius-sm);
+}
+
+.skeleton-text { height: 14px; margin-bottom: var(--space-2); }
+.skeleton-text:last-child { width: 60%; }
+.skeleton-avatar { width: 48px; height: 48px; border-radius: 50%; }
+.skeleton-card { height: 120px; border-radius: var(--radius-xl); }
+
+/* ============================================================
+   22. EMPTY STATE
+   ============================================================ */
+
+.empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-12) var(--space-6);
+  color: var(--text2);
+  text-align: center;
+}
+
+.empty-icon { font-size: 56px; margin-bottom: var(--space-4); animation: float 3s ease-in-out infinite; }
+.empty-title { font-size: 18px; font-weight: 700; margin-bottom: var(--space-2); color: var(--text); }
+.empty-desc { font-size: 14px; max-width: 320px; line-height: 1.6; }
+
+/* ============================================================
+   23. DIVIDER
+   ============================================================ */
+
+.divider { border: none; border-top: 1px solid var(--border); margin: var(--space-4) 0; }
+
+/* ============================================================
+   24. TOOLTIP
+   ============================================================ */
+
+.tooltip { position: relative; }
+.tooltip-text {
+  position: absolute;
+  bottom: calc(100% + 6px);
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--bg4);
+  color: var(--text);
+  padding: var(--space-1) var(--space-2);
+  border-radius: var(--radius-xs);
+  font-size: 12px;
+  white-space: nowrap;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity var(--transition);
+  z-index: 999;
+  box-shadow: var(--shadow-3);
+}
+
+.tooltip:hover .tooltip-text { opacity: 1; }
+
+/* ============================================================
+   25. ACTIVITY FEED
+   ============================================================ */
+
+.activity-item { display: flex; align-items: flex-start; gap: var(--space-3); padding: 10px 0; border-bottom: 1px solid var(--border); }
+.activity-item:last-child { border-bottom: none; }
+.activity-text { font-size: 13px; line-height: 1.5; flex: 1; }
+.activity-time { font-size: 11px; color: var(--text3); white-space: nowrap; }
+
+/* ============================================================
+   26. TABLE
+   ============================================================ */
+
+.table-wrap { overflow-x: auto; }
+
+table { width: 100%; border-collapse: collapse; }
+
+th {
+  text-align: left;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text2);
+  padding: 10px 16px;
+  border-bottom: 1px solid var(--border);
+  white-space: nowrap;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+}
+
+td { padding: 12px 16px; font-size: 14px; border-bottom: 1px solid var(--border); }
+tr:last-child td { border-bottom: none; }
+tr:hover td { background: var(--bg3); }
+
+/* ============================================================
+   27. ROLE COLORS
+   ============================================================ */
+
+.role-admin { background: var(--danger-light); color: var(--danger); }
+.role-president { background: var(--primary-light); color: var(--primary); }
+.role-leader { background: var(--warning-light); color: var(--warning); }
+.role-member { background: var(--success-light); color: var(--success); }
+
+/* ============================================================
+   28. TOAST — Slide-in animation
+   ============================================================ */
+
+.toast-container {
+  position: fixed;
+  bottom: var(--space-6);
+  right: var(--space-6);
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.toast {
+  background: var(--bg2);
+  -webkit-backdrop-filter: blur(16px);
+  backdrop-filter: blur(16px);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius);
+  padding: 12px 16px;
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  box-shadow: var(--shadow-4);
+  min-width: 300px;
+  max-width: 400px;
+}
+
+.toast-icon { font-size: 20px; }
+.toast-message { flex: 1; font-size: 14px; font-weight: 500; }
+
+.toast-close {
+  background: none;
+  border: none;
+  color: var(--text3);
+  cursor: pointer;
+  font-size: 16px;
+  padding: var(--space-1);
+  border-radius: var(--radius-xs);
+  transition: all var(--transition);
+}
+
+.toast-close:hover { background: var(--bg3); color: var(--text); }
+
+.toast-enter { animation: slideInRight var(--duration-slow) var(--ease-spring) forwards; }
+.toast-exit { animation: fadeOutRight var(--duration-slow) var(--ease-out) forwards; }
+
+@keyframes slideInRight {
+  from { transform: translateX(120%); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}
+
+@keyframes fadeOutRight {
+  from { transform: translateX(0); opacity: 1; }
+  to { transform: translateX(120%); opacity: 0; }
+}
+
+/* ============================================================
+   29. DROPDOWN
+   ============================================================ */
+
+.dropdown { position: relative; }
+
+.dropdown-menu {
+  position: absolute;
+  top: calc(100% + var(--space-2));
+  right: 0;
+  background: var(--bg2);
+  -webkit-backdrop-filter: blur(20px);
+  backdrop-filter: blur(20px);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius);
+  min-width: 180px;
+  box-shadow: var(--shadow-4);
+  z-index: 200;
+  animation: modalEnter var(--duration) var(--ease-spring);
+  overflow: hidden;
+}
+
+.dropdown-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 14px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background var(--transition);
+}
+
+.dropdown-item:hover { background: var(--bg3); }
+.dropdown-divider { border-top: 1px solid var(--border); margin: var(--space-1) 0; }
+
+/* ============================================================
+   30. SECTION HEADER
+   ============================================================ */
+
+.section-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: var(--space-4); }
+.section-title { font-size: 16px; font-weight: 700; }
+
+/* ============================================================
+   31. NOTIFICATION DOT
+   ============================================================ */
+
+.notif-dot {
+  width: 8px; height: 8px;
+  background: var(--danger);
+  border-radius: 50%;
+  position: absolute;
+  top: 4px; right: 4px;
+  animation: glowPulse 2s infinite;
+}
+
+.dept-dot { width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0; }
+
+/* ============================================================
+   32. LOGIN PAGE — Immersive
+   ============================================================ */
+
+.login-page {
+  min-height: 100vh;
+  background: var(--bg);
+  display: flex; align-items: center; justify-content: center;
+  padding: var(--space-6);
+  position: relative;
+  overflow: hidden;
+}
+
+.login-bg {
+  position: absolute; inset: 0;
+  background:
+    radial-gradient(ellipse at 20% 50%, rgba(139,124,247,0.2) 0%, transparent 60%),
+    radial-gradient(ellipse at 80% 20%, rgba(124,58,237,0.15) 0%, transparent 50%),
+    radial-gradient(ellipse at 50% 80%, rgba(6,182,212,0.06) 0%, transparent 50%);
+  animation: float 8s ease-in-out infinite;
+}
+
+.login-container { position: relative; z-index: 1; width: 100%; max-width: 900px; }
+.login-header { text-align: center; margin-bottom: var(--space-10); }
+
+.login-logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-3);
+  margin-bottom: var(--space-4);
+}
+
+.login-logo-icon {
+  width: 56px; height: 56px;
+  background: var(--accent-dashboard);
+  border-radius: var(--radius-lg);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 28px;
+  box-shadow: 0 8px 32px rgba(124,110,245,0.4);
+  animation: glowPulse 3s infinite;
+}
+
+.login-title {
+  font-size: clamp(1.75rem, 5vw, 2.25rem);
+  font-weight: 900;
+  background: var(--accent-dashboard);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  letter-spacing: -0.03em;
+}
+
+.login-subtitle { font-size: 15px; color: var(--text2); margin-top: var(--space-2); }
+
+.role-cards { display: grid; grid-template-columns: repeat(2, 1fr); gap: var(--space-4); }
+
+.role-card {
+  background: var(--glass);
+  -webkit-backdrop-filter: blur(16px);
+  backdrop-filter: blur(16px);
+  border: 2px solid var(--glass-border);
+  border-radius: var(--radius-2xl);
+  padding: var(--space-6);
+  cursor: pointer;
+  transition: all 0.25s var(--ease-out);
+  display: flex; flex-direction: column; gap: var(--space-3);
+  box-shadow: var(--shadow-2);
+}
+
+.role-card:hover, .role-card.selected {
+  border-color: var(--primary);
+  transform: translateY(-4px) scale(1.02);
+  box-shadow: var(--shadow-4), 0 0 40px var(--glow);
+  background: var(--primary-light);
+}
+
+.role-card:active { transform: scale(0.98); }
+
+.role-card-icon { font-size: 36px; }
+.role-card-title { font-size: 17px; font-weight: 700; }
+.role-card-desc { font-size: 13px; color: var(--text2); line-height: 1.5; }
+
+.login-btn {
+  margin-top: var(--space-6);
+  width: 100%;
+  padding: 14px;
+  font-size: 16px;
+  font-weight: 600;
+  border-radius: var(--radius);
+  background: var(--accent-dashboard);
+  box-shadow: 0 4px 20px rgba(124,110,245,0.4);
+}
+
+.login-btn:hover {
+  box-shadow: 0 8px 32px rgba(124,110,245,0.5);
+  transform: translateY(-2px);
+}
+
+/* ============================================================
+   33. RESPONSIVE — 5 Breakpoints
+   ============================================================ */
+
+/* Large Desktop: 1441px+ */
+@media (min-width: 1441px) {
+  .page-content { padding: var(--space-8); max-width: 1600px; }
+  .stats-grid { grid-template-columns: repeat(4, 1fr); }
+}
+
+/* Desktop: 1025-1440px */
+@media (min-width: 1025px) and (max-width: 1440px) {
+  .stats-grid { grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); }
+}
+
+/* Tablet: 769-1024px */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .sidebar { width: 64px; }
+  .sidebar .logo-text,
+  .sidebar .nav-item span:not(.nav-icon) { display: none; }
+  .main-content { margin-left: 64px; }
+  .grid-3 { grid-template-columns: 1fr 1fr; }
+}
+
+/* Mobile: 481-768px */
+@media (max-width: 768px) {
+  .sidebar { transform: translateX(-100%); width: 260px; }
+  .sidebar.mobile-open { transform: translateX(0); }
+  .main-content { margin-left: 0 !important; }
+  .stats-grid { grid-template-columns: 1fr 1fr; }
+  .grid-2, .grid-3 { grid-template-columns: 1fr; }
+  .kanban-board { flex-direction: column; }
+  .kanban-col { min-width: 100%; }
+  .page-content { padding: var(--space-4); }
+  .header { padding: 0 var(--space-4); }
+  .role-cards { grid-template-columns: 1fr; }
+  .modal { margin: var(--space-2); border-radius: var(--radius-xl); }
+}
+
+/* Small Mobile: 320-480px */
+@media (max-width: 480px) {
+  .stats-grid { grid-template-columns: 1fr; }
+  .filter-bar { flex-direction: column; align-items: stretch; }
+  .toast-container { left: var(--space-4); right: var(--space-4); }
+  .toast { min-width: auto; max-width: none; }
+}
+
+/* ============================================================
+   34. REDUCED MOTION
+   ============================================================ */
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* ============================================================
+   35. CHART CONTAINER
+   ============================================================ */
+
+.chart-container { width: 100%; }
+
+/* ============================================================
+   36. SCALE-IN ANIMATION (ConfirmDialog)
+   ============================================================ */
+
+.scale-in { animation: modalEnter var(--duration) var(--ease-spring) forwards; }
+

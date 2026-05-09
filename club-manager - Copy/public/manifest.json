@@ -1,0 +1,23 @@
+{
+  "name": "InnoHub CLB Manager",
+  "short_name": "InnoHub",
+  "description": "Hệ thống quản lý Câu lạc bộ Khởi nghiệp Đổi mới Sáng tạo",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0f172a",
+  "theme_color": "#6366f1",
+  "orientation": "portrait-primary",
+  "scope": "/",
+  "lang": "vi",
+  "categories": ["productivity", "education", "business"],
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ],
+  "screenshots": [],
+  "prefer_related_applications": false
+}
